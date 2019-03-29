@@ -99,7 +99,7 @@ public class GUI extends JPanel {
                     System.out.println("Rechts doet iets");
 
                     int[] temp = getHoofdpersoon();
-                    speelveld[temp[0 - 1]][temp[1]] = hoofdPersoon;
+                    speelveld[temp[0]-1][temp[1]] = hoofdPersoon;
                     speelveld[temp[0]][temp[1]] = new Vakje();
 
                 }
@@ -108,7 +108,7 @@ public class GUI extends JPanel {
                     System.out.println("Rechts doet iets");
 
                     int[] temp = getHoofdpersoon();
-                    speelveld[temp[0 + 1]][temp[1]] = hoofdPersoon;
+                    speelveld[temp[0]+1][temp[1]] = hoofdPersoon;
                     speelveld[temp[0]][temp[1]] = new Vakje();
 
                 }
