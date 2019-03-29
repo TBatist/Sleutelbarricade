@@ -72,24 +72,16 @@ public class GUI extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         speelveld[0][0] = hoofdPersoon;
-        speelveld[0][1] = vakje;
-        speelveld[0][2] = new Vakje();
-        speelveld[0][3] = new Vakje();
-        speelveld[1][0] = new Vakje();
-        speelveld[1][1] = new Vakje();
         speelveld[1][2] = muur;
-        speelveld[1][3] = new Vakje();
-        speelveld[2][0] = new Vakje();
-        speelveld[2][1] = new Vakje();
-        speelveld[2][2] = new Vakje();
-        speelveld[2][3] = new Vakje();
-        speelveld[3][0] = new Vakje();
-        speelveld[3][1] = new Vakje();
-        speelveld[3][2] = new Vakje();
         speelveld[3][3] = new Uitgang();
+
+
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
+                if(!(speelveld[i][j] instanceof JComponent)){
+                    speelveld[i][j] = new Vakje();
+                }
                 panel.add(speelveld[i][j]);
                 speelveld[i][j].setBorder(border);
             }
