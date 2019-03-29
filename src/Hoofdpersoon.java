@@ -37,4 +37,5 @@ public class Hoofdpersoon extends JComponent {
         g.fillOval(0, 0, 80, 80);
     }
 
+
 }

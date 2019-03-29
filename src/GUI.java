@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.security.Key;
 
 public class GUI extends JPanel {
     private static int i;
@@ -65,23 +66,89 @@ public class GUI extends JPanel {
         frame = new JFrame();
         keyText = new JTextField(200);
         panel.setLayout(new GridLayout(4, 4));
-        KeyListener listener = new addKeyListener();
+        KeyListener listener = new KeyListener() {
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                int keyCode = e.getKeyCode();
+                JComponent[][] speelveld = GUI.getSpeelveld();
+                int[] temp = getHoofdpersoon();
+                panel.removeAll();
+                switch (keyCode) {
+                    case 1:
+                        keyCode = KeyEvent.VK_RIGHT;
+                        if (temp[1] + 1 <= 3 && !(speelveld[temp[0]][temp[1] + 1] instanceof VasteMuur)) {
+                            speelveld[temp[0]][temp[1] + 1] = hoofdPersoon;
+                            speelveld[temp[0]][temp[1]] = new Vakje();
+                        }
+                    case 2:
+                        keyCode = KeyEvent.VK_LEFT;
+                        if (temp[1] - 1 >= 0 && !(speelveld[temp[0]][temp[1] - 1] instanceof VasteMuur)) {
+                            speelveld[temp[0]][temp[1] - 1] = hoofdPersoon;
+                            speelveld[temp[0]][temp[1]] = new Vakje();
+                        }
+                    case 3:
+                        keyCode = KeyEvent.VK_DOWN;
+                        if (temp[1] - 1 >= 0 && !(speelveld[temp[0]][temp[1] - 1] instanceof VasteMuur)) {
+                            speelveld[temp[0]][temp[1] - 1] = hoofdPersoon;
+                            speelveld[temp[0]][temp[1]] = new Vakje();
+                        }
+                    case 4:
+                        keyCode = KeyEvent.VK_UP;
+                        if (temp[1] - 1 >= 0 && !(speelveld[temp[0]][temp[1] - 1] instanceof VasteMuur)) {
+                            speelveld[temp[0]][temp[1] - 1] = hoofdPersoon;
+                            speelveld[temp[0]][temp[1]] = new Vakje();
+                        }
+
+
+
+                }
+
+
+                for (int i = 0; i < 4; i++) {
+                    for (int j = 0; j < 4; j++) {
+                        speelveld[i][j].setBorder(border);
+                        panel.add(speelveld[i][j]);
+                    }
+                }
+                frame.repaint();
+                frame.revalidate();
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        };
         frame.addKeyListener(listener);
 
         frame.setTitle("Sleutelbarricade");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         speelveld[0][0] = hoofdPersoon;
+        speelveld[0][1] = vakje;
+        speelveld[0][2] = new Vakje();
+        speelveld[0][3] = new Vakje();
+        speelveld[1][0] = new Vakje();
+        speelveld[1][1] = new Vakje();
         speelveld[1][2] = muur;
+        speelveld[1][3] = new Vakje();
+        speelveld[2][0] = new Vakje();
+        speelveld[2][1] = new Vakje();
+        speelveld[2][2] = new Vakje();
+        speelveld[2][3] = new Vakje();
+        speelveld[3][0] = new Vakje();
+        speelveld[3][1] = new Vakje();
+        speelveld[3][2] = new Vakje();
         speelveld[3][3] = new Uitgang();
-
-
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                if(!(speelveld[i][j] instanceof JComponent)){
-                    speelveld[i][j] = new Vakje();
-                }
                 panel.add(speelveld[i][j]);
                 speelveld[i][j].setBorder(border);
             }
@@ -92,67 +159,4 @@ public class GUI extends JPanel {
 
         frame.setVisible(true);
     }
-
-    public class addKeyListener implements KeyListener{
-
-        @Override
-        public void keyTyped(KeyEvent e) {
-
-        }
-
-        @Override
-        public void keyPressed(KeyEvent e) {
-            int keyCode = e.getKeyCode();
-            JComponent[][] speelveld = GUI.getSpeelveld();
-            panel.removeAll();
-            if(keyCode == KeyEvent.VK_RIGHT){
-                int[] temp = getHoofdpersoon();
-                if(temp[1] + 1 <= 3 && !(speelveld[temp[0]][temp[1] + 1] instanceof VasteMuur)){
-                    speelveld[temp[0]][temp[1] + 1] = hoofdPersoon;
-                    speelveld[temp[0]][temp[1]] = new Vakje();
-                }
-
-
-            }
-
-            else if(keyCode == KeyEvent.VK_LEFT){
-                int[] temp = getHoofdpersoon();
-                if(temp[1] - 1 >= 0 && !(speelveld[temp[0]][temp[1] - 1] instanceof VasteMuur)) {
-                    speelveld[temp[0]][temp[1] - 1] = hoofdPersoon;
-                    speelveld[temp[0]][temp[1]] = new Vakje();
-                }
-
-            }
-
-            else if(keyCode == KeyEvent.VK_UP){
-                int[] temp = getHoofdpersoon();
-                if(temp[0] - 1 >= 0 && !(speelveld[temp[0] - 1][temp[1]] instanceof VasteMuur)) {
-                    speelveld[temp[0] - 1][temp[1]] = hoofdPersoon;
-                    speelveld[temp[0]][temp[1]] = new Vakje();
-                }
-            }
-
-            else if(keyCode == KeyEvent.VK_DOWN){
-                int[] temp = getHoofdpersoon();
-                if(temp[0] + 1 <= 3  && !(speelveld[temp[0] + 1][temp[1]] instanceof VasteMuur)) {
-                    speelveld[temp[0] + 1][temp[1]] = hoofdPersoon;
-                    speelveld[temp[0]][temp[1]] = new Vakje();
-                }
-            }
-
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0; j < 4; j++) {
-                    speelveld[i][j].setBorder(border);
-                    panel.add(speelveld[i][j]);
-                }
-            }
-            frame.repaint();
-            frame.revalidate();
-        }
-
-        @Override
-        public void keyReleased(KeyEvent e) {
-
-        }
-    };
 }
