@@ -11,6 +11,11 @@ public class GUI extends JPanel {
     private static Border border;
     private static JFrame frame;
     private JTextField keyText;
+    private Hoofdpersoon h = new Hoofdpersoon();
+    private Vakje v = new Vakje();
+    private VasteMuur m = new VasteMuur();
+    private Uitgang u = new Uitgang();
+
 
 
     private static JComponent[][] speelveld = new JComponent[4][4];
@@ -20,6 +25,7 @@ public class GUI extends JPanel {
     }
 
     public static void setSpeelveld(JComponent[][] speelveld) {
+
         panel = new JPanel();
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -67,6 +73,18 @@ public class GUI extends JPanel {
                     System.out.println("Rechts doet iets");
                     JComponent[][] speelveld = GUI.getSpeelveld();
                     System.out.println(getHoofdpersoon());
+
+                    panel.removeAll();
+                    speelveld[1][1]= h;
+                    speelveld[2][2]=m;
+                    for (int i = 0; i < 4; i++) {
+                        for (int j = 0; j < 4; j++) {
+                            speelveld[i][j].setBorder(border);
+                            panel.add(speelveld[i][j]);
+                        }
+                    }
+                    frame.repaint();
+                    frame.revalidate();
                 }
             }
 
@@ -79,6 +97,12 @@ public class GUI extends JPanel {
 
         frame.setTitle("Sleutelbarricade");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        Hoofdpersoon h = new Hoofdpersoon();
+        Vakje v = new Vakje();
+        VasteMuur m = new VasteMuur();
+        Uitgang u = new Uitgang();
+
 
         speelveld[0][0] = new Hoofdpersoon();
         speelveld[0][1] = new Vakje();
