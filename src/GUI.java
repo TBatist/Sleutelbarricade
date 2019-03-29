@@ -46,8 +46,6 @@ public class GUI extends JPanel {
         game.startProgram();
     }
 
-    public static void swap(JComponent[][] list, int x, int y){}
-
 
     public void startProgram() {
         border = BorderFactory.createLineBorder(Color.black);
@@ -68,7 +66,7 @@ public class GUI extends JPanel {
                 if(keyCode == KeyEvent.VK_RIGHT){
                     System.out.println("Rechts doet iets");
                     JComponent[][] speelveld = GUI.getSpeelveld();
-                    swap(speelveld, getHoofdpersoon(),getHoofdpersoon()+1);
+                    System.out.println(getHoofdpersoon());
                 }
             }
 

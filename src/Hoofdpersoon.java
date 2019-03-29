@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-public class Hoofdpersoon extends JComponent implements KeyListener, ActionListener {
+public class Hoofdpersoon extends JComponent {
     private ArrayList<Schaar> aantalSleutels;
 
     public Hoofdpersoon() {
@@ -15,12 +15,12 @@ public class Hoofdpersoon extends JComponent implements KeyListener, ActionListe
 
     }
 
-    public static void lopen(JComponent[] speelveld) {
+    //public static void lopen(JComponent[] speelveld) {
 
 
-        GUI.setSpeelveld(speelveld);
+    //    GUI.setSpeelveld(speelveld);
 
-    }
+    //}
 
     public ArrayList<Schaar> getAantalSleutels() {
         return aantalSleutels;
@@ -37,28 +37,4 @@ public class Hoofdpersoon extends JComponent implements KeyListener, ActionListe
         g.fillOval(0, 0, 80, 80);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            JComponent[] speelveld = GUI.getSpeelveld();
-            int hoofdpersoon = GUI.getHoofdpersoon();
-            speelveld[hoofdpersoon] = new Vakje();
-            speelveld[hoofdpersoon + 1] = new Hoofdpersoon();
-        }
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
-    }
 }
