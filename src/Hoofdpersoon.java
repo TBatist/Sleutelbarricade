@@ -11,7 +11,7 @@ public class Hoofdpersoon extends JComponent {
         aantalSleutels = new ArrayList<>();
     }
 
-    public boolean checkWaarde() {
+    public static boolean checkWaarde() {
         if(Schaar.getWaarde() == Obstakel.getWaarde()){
             return true;
         }
