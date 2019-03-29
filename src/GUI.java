@@ -7,6 +7,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class GUI extends JPanel {
+    private static int i;
+    private static int j;
     private static JPanel panel;
     private static Border border;
     private static JFrame frame;
@@ -36,15 +38,19 @@ public class GUI extends JPanel {
         frame.add(panel, BorderLayout.CENTER);
     }
 
-    public static int getHoofdpersoon(){
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                if (speelveld[i][j].equals(new Hoofdpersoon())) {
-                    return i & j;
+    public static int[] getHoofdpersoon(){
+        int[] temp = new int[2];
+        for (i = 0; i < 4; i++) {
+            for (j = 0; j < 4; j++) {
+                if (speelveld[i][j] instanceof Hoofdpersoon) {
+                    System.out.println("i is:" + i + " J is: " + j);
+                    temp[0] = i;
+                    temp[1] = j;
+                    return temp;
                 }
             }
         }
-        return 0;
+        return null;
     }
 
     public static void main(String[] args) {
@@ -69,23 +75,34 @@ public class GUI extends JPanel {
             @Override
             public void keyPressed(KeyEvent e) {
                 int keyCode = e.getKeyCode();
+                JComponent[][] speelveld = GUI.getSpeelveld();
+                panel.removeAll();
                 if(keyCode == KeyEvent.VK_RIGHT){
                     System.out.println("Rechts doet iets");
-                    JComponent[][] speelveld = GUI.getSpeelveld();
-                    System.out.println(getHoofdpersoon());
 
-                    panel.removeAll();
-                    speelveld[0][1]= hoofdPersoon;
-                    speelveld[0][0]= vakje;
-                    for (int i = 0; i < 4; i++) {
-                        for (int j = 0; j < 4; j++) {
-                            speelveld[i][j].setBorder(border);
-                            panel.add(speelveld[i][j]);
-                        }
-                    }
-                    frame.repaint();
-                    frame.revalidate();
+                    int[] temp = getHoofdpersoon();
+                    speelveld[temp[0]][temp[1] + 1] = hoofdPersoon;
+                    speelveld[temp[0]][temp[1]] = new Vakje();
+
                 }
+
+                if(keyCode == KeyEvent.VK_LEFT){
+                    System.out.println("Rechts doet iets");
+
+                    int[] temp = getHoofdpersoon();
+                    speelveld[temp[0]][temp[1] - 1] = hoofdPersoon;
+                    speelveld[temp[0]][temp[1]] = new Vakje();
+
+                }
+
+                for (int i = 0; i < 4; i++) {
+                    for (int j = 0; j < 4; j++) {
+                        speelveld[i][j].setBorder(border);
+                        panel.add(speelveld[i][j]);
+                    }
+                }
+                frame.repaint();
+                frame.revalidate();
             }
 
             @Override
