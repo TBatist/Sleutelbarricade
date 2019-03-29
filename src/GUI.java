@@ -78,10 +78,8 @@ public class GUI extends JPanel {
                 JComponent[][] speelveld = GUI.getSpeelveld();
                 panel.removeAll();
                 if(keyCode == KeyEvent.VK_RIGHT){
-                    System.out.println("Rechts doet iets");
-
                     int[] temp = getHoofdpersoon();
-                    if(temp[1] + 1 <= 3){
+                    if(temp[1] + 1 <= 3 && !(speelveld[temp[0]][temp[1] + 1] instanceof VasteMuur)){
                         speelveld[temp[0]][temp[1] + 1] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
                     }
@@ -90,10 +88,8 @@ public class GUI extends JPanel {
                 }
 
                 else if(keyCode == KeyEvent.VK_LEFT){
-                    System.out.println("Rechts doet iets");
-
                     int[] temp = getHoofdpersoon();
-                    if(temp[1] - 1 >= 0) {
+                    if(temp[1] - 1 >= 0 && !(speelveld[temp[0]][temp[1] - 1] instanceof VasteMuur)) {
                         speelveld[temp[0]][temp[1] - 1] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
                     }
@@ -101,20 +97,16 @@ public class GUI extends JPanel {
                 }
 
                 else if(keyCode == KeyEvent.VK_UP){
-                    System.out.println("Rechts doet iets");
-
                     int[] temp = getHoofdpersoon();
-                    if(temp[0] - 1 >= 0) {
+                    if(temp[0] - 1 >= 0 && !(speelveld[temp[0] - 1][temp[1]] instanceof VasteMuur)) {
                         speelveld[temp[0] - 1][temp[1]] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
                     }
                 }
 
                 else if(keyCode == KeyEvent.VK_DOWN){
-                    System.out.println("Rechts doet iets");
-
                     int[] temp = getHoofdpersoon();
-                    if(temp[0] + 1 <= 3) {
+                    if(temp[0] + 1 <= 3  && !(speelveld[temp[0] + 1][temp[1]] instanceof VasteMuur)) {
                         speelveld[temp[0] + 1][temp[1]] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
                     }
