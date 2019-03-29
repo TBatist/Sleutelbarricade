@@ -14,6 +14,8 @@ public class GUI extends JPanel {
     private static JFrame frame;
     private JTextField keyText;
     private Hoofdpersoon hoofdPersoon = new Hoofdpersoon();
+    private Obstakel obstakel = new Obstakel(300);
+    private Schaar schaar = new Schaar(200);
     private Vakje vakje = new Vakje();
     private VasteMuur muur = new VasteMuur();
     private Uitgang uitgang = new Uitgang();
@@ -73,7 +75,9 @@ public class GUI extends JPanel {
 
         speelveld[0][0] = hoofdPersoon;
         speelveld[1][2] = muur;
-        speelveld[3][3] = new Uitgang();
+        speelveld[3][3] = uitgang;
+        speelveld[2][2] = obstakel;
+        speelveld[3][2] = schaar;
 
 
 
@@ -107,7 +111,8 @@ public class GUI extends JPanel {
             panel.removeAll();
             if(keyCode == KeyEvent.VK_RIGHT){
                 int[] temp = getHoofdpersoon();
-                if(temp[1] + 1 <= 3 && !(speelveld[temp[0]][temp[1] + 1] instanceof VasteMuur)){
+                if(speelveld[temp[0]][temp[1]+1] instanceof Obstakel){}
+                else if(temp[1] + 1 <= 3 && !(speelveld[temp[0]][temp[1] + 1] instanceof VasteMuur)){
                     speelveld[temp[0]][temp[1] + 1] = hoofdPersoon;
                     speelveld[temp[0]][temp[1]] = new Vakje();
                 }

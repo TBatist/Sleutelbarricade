@@ -11,15 +11,11 @@ public class Hoofdpersoon extends JComponent {
         aantalSleutels = new ArrayList<>();
     }
 
-    public void knippen() {
-
-    }
-
-    public static void lopen(JComponent[] speelveld) {
-
-
-        //GUI.setSpeelveld(speelveld);
-
+    public boolean checkWaarde() {
+        if(Schaar.getWaarde() < Obstakel.getWaarde()){
+            return true;
+        }
+        else{return false;}
     }
 
     public ArrayList<Schaar> getAantalSleutels() {
@@ -31,8 +27,6 @@ public class Hoofdpersoon extends JComponent {
     }
 
     public void paintComponent(Graphics g) {
-        Border border = BorderFactory.createLineBorder(Color.black);
-        //componentHoofdpersoon.setBorder(border);
         g.setColor(Color.RED);
         g.fillOval(0, 0, 80, 80);
     }
