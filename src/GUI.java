@@ -11,10 +11,10 @@ public class GUI extends JPanel {
     private static Border border;
     private static JFrame frame;
     private JTextField keyText;
-    private Hoofdpersoon h = new Hoofdpersoon();
-    private Vakje v = new Vakje();
-    private VasteMuur m = new VasteMuur();
-    private Uitgang u = new Uitgang();
+    private Hoofdpersoon hoofdPersoon = new Hoofdpersoon();
+    private Vakje vakje = new Vakje();
+    private VasteMuur muur = new VasteMuur();
+    private Uitgang uitgang = new Uitgang();
 
 
 
@@ -75,8 +75,8 @@ public class GUI extends JPanel {
                     System.out.println(getHoofdpersoon());
 
                     panel.removeAll();
-                    speelveld[1][1]= h;
-                    speelveld[2][2]=m;
+                    speelveld[0][1]= hoofdPersoon;
+                    speelveld[0][0]= vakje;
                     for (int i = 0; i < 4; i++) {
                         for (int j = 0; j < 4; j++) {
                             speelveld[i][j].setBorder(border);
@@ -98,19 +98,13 @@ public class GUI extends JPanel {
         frame.setTitle("Sleutelbarricade");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        Hoofdpersoon h = new Hoofdpersoon();
-        Vakje v = new Vakje();
-        VasteMuur m = new VasteMuur();
-        Uitgang u = new Uitgang();
-
-
-        speelveld[0][0] = new Hoofdpersoon();
-        speelveld[0][1] = new Vakje();
+        speelveld[0][0] = hoofdPersoon;
+        speelveld[0][1] = vakje;
         speelveld[0][2] = new Vakje();
         speelveld[0][3] = new Vakje();
         speelveld[1][0] = new Vakje();
         speelveld[1][1] = new Vakje();
-        speelveld[1][2] = new VasteMuur();
+        speelveld[1][2] = muur;
         speelveld[1][3] = new Vakje();
         speelveld[2][0] = new Vakje();
         speelveld[2][1] = new Vakje();
