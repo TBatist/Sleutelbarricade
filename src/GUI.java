@@ -26,18 +26,6 @@ public class GUI extends JPanel {
         return speelveld;
     }
 
-    public static void setSpeelveld(JComponent[][] speelveld) {
-
-        panel = new JPanel();
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                speelveld[i][j].setBorder(border);
-                panel.add(speelveld[i][j]);
-            }
-        }
-        frame.add(panel, BorderLayout.CENTER);
-    }
-
     public static int[] getHoofdpersoon(){
         int[] temp = new int[2];
         for (i = 0; i < 4; i++) {
@@ -107,28 +95,28 @@ public class GUI extends JPanel {
             switch(keyCode) {
                 case KeyEvent.VK_RIGHT:
                     int[] temp = getHoofdpersoon();
-                    if (temp[1] + 1 <= 3 && !(speelveld[temp[0]][temp[1] + 1] instanceof VasteMuur) || (speelveld[temp[0]][temp[1] + 1] instanceof Obstakel && Hoofdpersoon.checkWaarde() == true)) {
+                    if (temp[1] + 1 <= 3 && (!(speelveld[temp[0]][temp[1] + 1] instanceof VasteMuur) || ((speelveld[temp[0]][temp[1] + 1] instanceof Obstakel && Hoofdpersoon.checkWaarde())))) {
                         speelveld[temp[0]][temp[1] + 1] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
                     }
                     break;
                 case KeyEvent.VK_LEFT:
                     temp = getHoofdpersoon();
-                    if (temp[1] - 1 >= 0 && !(speelveld[temp[0]][temp[1] - 1] instanceof VasteMuur)|| (speelveld[temp[0]][temp[1] - 1] instanceof Obstakel && Hoofdpersoon.checkWaarde() == true)) {
+                    if (temp[1] - 1 >= 0 && (!(speelveld[temp[0]][temp[1] - 1] instanceof VasteMuur)|| ((speelveld[temp[0]][temp[1] - 1] instanceof Obstakel && Hoofdpersoon.checkWaarde())))) {
                         speelveld[temp[0]][temp[1] - 1] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
                     }
                     break;
                 case KeyEvent.VK_UP:
                     temp = getHoofdpersoon();
-                    if (temp[0] - 1 >= 0 && !(speelveld[temp[0] - 1][temp[1]] instanceof VasteMuur) || (speelveld[temp[0]][temp[1] + 1] instanceof Obstakel && Hoofdpersoon.checkWaarde() == true)) {
+                    if (temp[0] - 1 >= 0 && (!(speelveld[temp[0] - 1][temp[1]] instanceof VasteMuur) || ((speelveld[temp[0]][temp[1] + 1] instanceof Obstakel && Hoofdpersoon.checkWaarde())))) {
                         speelveld[temp[0] - 1][temp[1]] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
                     }
                     break;
                 case KeyEvent.VK_DOWN:
                     temp = getHoofdpersoon();
-                    if (temp[0] + 1 <= 3 && !(speelveld[temp[0] + 1][temp[1]] instanceof VasteMuur)|| (speelveld[temp[0]][temp[1] + 1] instanceof Obstakel && Hoofdpersoon.checkWaarde() == true)) {
+                    if (temp[0] + 1 <= 3 && (!(speelveld[temp[0] + 1][temp[1]] instanceof VasteMuur)|| ((speelveld[temp[0]][temp[1] + 1] instanceof Obstakel && Hoofdpersoon.checkWaarde())))) {
                         speelveld[temp[0] + 1][temp[1]] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
                     }
