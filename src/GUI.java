@@ -13,25 +13,29 @@ public class GUI extends JPanel {
     private JTextField keyText;
 
 
-    private static JComponent[] speelveld = new JComponent[16];
+    private static JComponent[][] speelveld = new JComponent[4][4];
 
-    public static JComponent[] getSpeelveld() {
+    public static JComponent[][] getSpeelveld() {
         return speelveld;
     }
 
-    public static void setSpeelveld(JComponent[] speelveld) {
+    public static void setSpeelveld(JComponent[][] speelveld) {
         panel = new JPanel();
-        for (int i = 0; i < speelveld.length; i++) {
-            speelveld[i].setBorder(border);
-            panel.add(speelveld[i]);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                speelveld[i][j].setBorder(border);
+                panel.add(speelveld[i][j]);
+            }
         }
         frame.add(panel, BorderLayout.CENTER);
     }
 
     public static int getHoofdpersoon(){
-        for (int i = 0; i < speelveld.length; i++) {
-            if(speelveld[i].equals(new Hoofdpersoon())){
-                return i;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (speelveld[i][j].equals(new Hoofdpersoon())) {
+                    return i & j;
+                }
             }
         }
         return 0;
@@ -41,6 +45,8 @@ public class GUI extends JPanel {
         GUI game = new GUI();
         game.startProgram();
     }
+
+    public static void swap(JComponent[][] list, int x, int y){}
 
 
     public void startProgram() {
@@ -60,19 +66,9 @@ public class GUI extends JPanel {
             public void keyPressed(KeyEvent e) {
                 int keyCode = e.getKeyCode();
                 if(keyCode == KeyEvent.VK_RIGHT){
-                    JComponent[] speelveld = GUI.getSpeelveld();
-                    int hoofdpersoon = GUI.getHoofdpersoon();
-                    speelveld[hoofdpersoon] = new Vakje();
-                    speelveld[hoofdpersoon + 1] = new Hoofdpersoon();
-
-                    panel.removeAll();
-                    for (int i = 0; i < speelveld.length; i++) {
-                        panel.add(speelveld[i]);
-                        speelveld[i].setBorder(border);
-                    }
-                    frame.add(panel, BorderLayout.CENTER);
-                    frame.revalidate();
-                    frame.repaint();
+                    System.out.println("Rechts doet iets");
+                    JComponent[][] speelveld = GUI.getSpeelveld();
+                    swap(speelveld, getHoofdpersoon(),getHoofdpersoon()+1);
                 }
             }
 
@@ -86,26 +82,28 @@ public class GUI extends JPanel {
         frame.setTitle("Sleutelbarricade");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        speelveld[0] = new Hoofdpersoon();
-        speelveld[1] = new Vakje();
-        speelveld[2] = new Vakje();
-        speelveld[3] = new Vakje();
-        speelveld[4] = new Vakje();
-        speelveld[5] = new Vakje();
-        speelveld[6] = new VasteMuur();
-        speelveld[7] = new Vakje();
-        speelveld[8] = new Vakje();
-        speelveld[9] = new Vakje();
-        speelveld[10] = new Vakje();
-        speelveld[11] = new Vakje();
-        speelveld[12] = new Vakje();
-        speelveld[13] = new Vakje();
-        speelveld[14] = new Vakje();
-        speelveld[15] = new Uitgang();
+        speelveld[0][0] = new Hoofdpersoon();
+        speelveld[0][1] = new Vakje();
+        speelveld[0][2] = new Vakje();
+        speelveld[0][3] = new Vakje();
+        speelveld[1][0] = new Vakje();
+        speelveld[1][1] = new Vakje();
+        speelveld[1][2] = new VasteMuur();
+        speelveld[1][3] = new Vakje();
+        speelveld[2][0] = new Vakje();
+        speelveld[2][1] = new Vakje();
+        speelveld[2][2] = new Vakje();
+        speelveld[2][3] = new Vakje();
+        speelveld[3][0] = new Vakje();
+        speelveld[3][1] = new Vakje();
+        speelveld[3][2] = new Vakje();
+        speelveld[3][3] = new Uitgang();
 
-        for (int i = 0; i < speelveld.length; i++) {
-            panel.add(speelveld[i]);
-            speelveld[i].setBorder(border);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                panel.add(speelveld[i][j]);
+                speelveld[i][j].setBorder(border);
+            }
         }
 
         frame.add(panel);
