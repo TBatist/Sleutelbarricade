@@ -86,11 +86,29 @@ public class GUI extends JPanel {
 
                 }
 
-                if(keyCode == KeyEvent.VK_LEFT){
+                else if(keyCode == KeyEvent.VK_LEFT){
                     System.out.println("Rechts doet iets");
 
                     int[] temp = getHoofdpersoon();
                     speelveld[temp[0]][temp[1] - 1] = hoofdPersoon;
+                    speelveld[temp[0]][temp[1]] = new Vakje();
+
+                }
+
+                else if(keyCode == KeyEvent.VK_UP){
+                    System.out.println("Rechts doet iets");
+
+                    int[] temp = getHoofdpersoon();
+                    speelveld[temp[0 - 1]][temp[1]] = hoofdPersoon;
+                    speelveld[temp[0]][temp[1]] = new Vakje();
+
+                }
+
+                else if(keyCode == KeyEvent.VK_DOWN){
+                    System.out.println("Rechts doet iets");
+
+                    int[] temp = getHoofdpersoon();
+                    speelveld[temp[0 + 1]][temp[1]] = hoofdPersoon;
                     speelveld[temp[0]][temp[1]] = new Vakje();
 
                 }
