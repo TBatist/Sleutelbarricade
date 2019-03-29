@@ -12,10 +12,10 @@ public class Hoofdpersoon extends JComponent {
     }
 
     public boolean checkWaarde() {
-        if(Schaar.getWaarde() < Obstakel.getWaarde()){
+        if(Schaar.getWaarde() == Obstakel.getWaarde()){
             return true;
         }
-        else{return false;}
+        return false;
     }
 
     public ArrayList<Schaar> getAantalSleutels() {

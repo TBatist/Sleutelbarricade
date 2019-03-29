@@ -12,7 +12,6 @@ public class GUI extends JPanel {
     private static JPanel panel;
     private static Border border;
     private static JFrame frame;
-    private JTextField keyText;
     private Hoofdpersoon hoofdPersoon = new Hoofdpersoon();
     private Vakje vakje = new Vakje();
     private VasteMuur muur = new VasteMuur();
@@ -43,7 +42,6 @@ public class GUI extends JPanel {
         for (i = 0; i < 4; i++) {
             for (j = 0; j < 4; j++) {
                 if (speelveld[i][j] instanceof Hoofdpersoon) {
-                    System.out.println("i is:" + i + " J is: " + j);
                     temp[0] = i;
                     temp[1] = j;
                     return temp;
@@ -63,7 +61,6 @@ public class GUI extends JPanel {
         border = BorderFactory.createLineBorder(Color.black);
         panel = new JPanel();
         frame = new JFrame();
-        keyText = new JTextField(200);
         panel.setLayout(new GridLayout(4, 4));
         KeyListener listener = new addKeyListener();
         frame.addKeyListener(listener);
@@ -87,7 +84,13 @@ public class GUI extends JPanel {
             }
         }
 
-        frame.add(panel);
+        frame.add(panel, BorderLayout.CENTER);
+        JPanel buttonPanel = new JPanel();
+        JButton reset = new JButton("Reset");
+        JButton start = new JButton("Start");
+        buttonPanel.add(start);
+        buttonPanel.add(reset);
+        frame.add(buttonPanel, BorderLayout.SOUTH);
         frame.setSize(1000, 1000);
 
         frame.setVisible(true);
