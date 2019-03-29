@@ -85,12 +85,6 @@ public class GUI extends JPanel {
         }
 
         frame.add(panel, BorderLayout.CENTER);
-        JPanel buttonPanel = new JPanel();
-        JButton reset = new JButton("Reset");
-        JButton start = new JButton("Start");
-        buttonPanel.add(start);
-        buttonPanel.add(reset);
-        frame.add(buttonPanel, BorderLayout.SOUTH);
         frame.setSize(1000, 1000);
 
         frame.setVisible(true);
