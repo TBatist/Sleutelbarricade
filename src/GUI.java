@@ -13,10 +13,6 @@ public class GUI extends JPanel {
     private static Border border;
     private static JFrame frame;
     private Hoofdpersoon hoofdPersoon = new Hoofdpersoon();
-    private Vakje vakje = new Vakje();
-    private VasteMuur muur = new VasteMuur();
-    private Uitgang uitgang = new Uitgang();
-    private Obstakel obstakel = new Obstakel(300);
 
 
 
@@ -58,9 +54,11 @@ public class GUI extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         speelveld[0][0] = hoofdPersoon;
-        speelveld[1][2] = muur;
-        speelveld[3][3] = uitgang;
-        speelveld[3][2] = obstakel;
+        speelveld[1][2] = new VasteMuur();
+        speelveld[3][3] = new Uitgang();
+        speelveld[3][2] = new Obstakel(300);
+        speelveld[3][1] = new Schaar(150);
+        speelveld[0][3] = new Schaar(300);
 
 
 
@@ -92,31 +90,46 @@ public class GUI extends JPanel {
             int keyCode = e.getKeyCode();
             JComponent[][] speelveld = GUI.getSpeelveld();
             panel.removeAll();
+            int[] temp = getHoofdpersoon();
+            JComponent surrouding;
             switch(keyCode) {
                 case KeyEvent.VK_RIGHT:
-                    int[] temp = getHoofdpersoon();
-                    if (temp[1] + 1 <= 3 && (!(speelveld[temp[0]][temp[1] + 1] instanceof VasteMuur) || ((speelveld[temp[0]][temp[1] + 1] instanceof Obstakel && Hoofdpersoon.checkWaarde())))) {
+                    surrouding = Hoofdpersoon.surrounding('r');
+                    if (temp[1] + 1 <= 3 && (surrouding instanceof Vakje) || (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || surrouding instanceof Schaar) {
+                        if(surrouding instanceof Schaar){
+                            hoofdPersoon.addSchaar((Schaar) surrouding);
+                            System.out.println(hoofdPersoon.getString());
+                        }
                         speelveld[temp[0]][temp[1] + 1] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
                     }
                     break;
                 case KeyEvent.VK_LEFT:
-                    temp = getHoofdpersoon();
-                    if (temp[1] - 1 >= 0 && (!(speelveld[temp[0]][temp[1] - 1] instanceof VasteMuur)|| ((speelveld[temp[0]][temp[1] - 1] instanceof Obstakel && Hoofdpersoon.checkWaarde())))) {
+                    surrouding = Hoofdpersoon.surrounding('l');
+                    if (temp[1] - 1 >= 0 && (surrouding instanceof Vakje)|| (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || surrouding instanceof Schaar) {
+                        if(surrouding instanceof Schaar){
+                            hoofdPersoon.addSchaar((Schaar) surrouding);
+                        }
                         speelveld[temp[0]][temp[1] - 1] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
                     }
                     break;
                 case KeyEvent.VK_UP:
-                    temp = getHoofdpersoon();
-                    if (temp[0] - 1 >= 0 && (!(speelveld[temp[0] - 1][temp[1]] instanceof VasteMuur) || ((speelveld[temp[0]][temp[1] + 1] instanceof Obstakel && Hoofdpersoon.checkWaarde())))) {
+                    surrouding = Hoofdpersoon.surrounding('u');
+                    if (temp[0] - 1 >= 0 && (surrouding instanceof Vakje) || (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || surrouding instanceof Schaar) {
+                        if(surrouding instanceof Schaar){
+                            hoofdPersoon.addSchaar((Schaar) surrouding);
+                        }
                         speelveld[temp[0] - 1][temp[1]] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
                     }
                     break;
                 case KeyEvent.VK_DOWN:
-                    temp = getHoofdpersoon();
-                    if (temp[0] + 1 <= 3 && (!(speelveld[temp[0] + 1][temp[1]] instanceof VasteMuur)|| ((speelveld[temp[0]][temp[1] + 1] instanceof Obstakel && Hoofdpersoon.checkWaarde())))) {
+                    surrouding = Hoofdpersoon.surrounding('d');
+                    if (temp[0] + 1 <= 3 && (surrouding instanceof Vakje)|| (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || surrouding instanceof Schaar) {
+                        if(surrouding instanceof Schaar){
+                            hoofdPersoon.addSchaar((Schaar) surrouding);
+                        }
                         speelveld[temp[0] + 1][temp[1]] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
                     }
