@@ -98,13 +98,12 @@ public class GUI extends JPanel {
                     if (temp[1] + 1 <= 3 && (surrouding instanceof Vakje) || (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || (surrouding instanceof Schaar) || surrouding instanceof Uitgang) {
                         if(surrouding instanceof Schaar){
                             hoofdPersoon.addSchaar((Schaar) surrouding);
-                            System.out.println(hoofdPersoon.getString());
                         }
                         speelveld[temp[0]][temp[1] + 1] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
                         if(surrouding instanceof Uitgang) {
                             frame.dispose();
-                            Uitgang.nieuwLevel();
+                            Uitgang.restartLevel();
                         }
                     }
                     break;
@@ -118,7 +117,7 @@ public class GUI extends JPanel {
                         speelveld[temp[0]][temp[1]] = new Vakje();
                         if(surrouding instanceof Uitgang) {
                             frame.dispose();
-                            Uitgang.nieuwLevel();
+                            Uitgang.restartLevel();
                         }
                     }
                     break;
@@ -132,7 +131,7 @@ public class GUI extends JPanel {
                         speelveld[temp[0]][temp[1]] = new Vakje();
                         if(surrouding instanceof Uitgang) {
                             frame.dispose();
-                            Uitgang.nieuwLevel();
+                            Uitgang.restartLevel();
                         }
                     }
                     break;
@@ -146,7 +145,7 @@ public class GUI extends JPanel {
                         speelveld[temp[0]][temp[1]] = new Vakje();
                         if(surrouding instanceof Uitgang) {
                             frame.dispose();
-                            Uitgang.nieuwLevel();
+                            Uitgang.restartLevel();
                         }
                     }
                     break;

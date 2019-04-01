@@ -8,7 +8,7 @@ public class Uitgang extends JComponent {
 
     }
 
-    public static void nieuwLevel(){
+    public static void restartLevel(){
         GUI level = new GUI();
         level.startProgram();
     }
