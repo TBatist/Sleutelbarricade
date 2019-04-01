@@ -62,4 +62,28 @@ public class Levels extends JPanel {
         return speelveld;
     }
 
+    public static JComponent[][] level2(){
+        JComponent [][] speelveld = GUI.getSpeelveld();
+        //Maak level hier
+        return speelveld;
+    }
+
+    public static JComponent[][] level3(){
+        JComponent [][] speelveld = GUI.getSpeelveld();
+        //Maak level hier
+        return speelveld;
+    }
+
+    public static JComponent[][] level4(){
+        JComponent [][] speelveld = GUI.getSpeelveld();
+        //Maak level hier
+        return speelveld;
+    }
+
+    public static JComponent[][] level5(){
+        JComponent [][] speelveld = GUI.getSpeelveld();
+        //Maak level hier
+        return speelveld;
+    }
+
 }
