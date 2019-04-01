@@ -13,7 +13,6 @@ public class GUI extends JPanel {
     private static Border border;
     private static JFrame frame;
     private Hoofdpersoon hoofdPersoon = new Hoofdpersoon();
-    private int levelsCompleted = 0;
 
 
     private static JComponent[][] speelveld = new JComponent[10][10];
@@ -53,13 +52,13 @@ public class GUI extends JPanel {
         frame.setTitle("Sleutelbarricade");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        if(levelsCompleted == 0) {
+        if(Uitgang.getLevelCompleted() == 0) {
             speelveld = Levels.level1();
-        }else if(levelsCompleted == 1){
+        }else if(Uitgang.getLevelCompleted() == 1){
             speelveld = Levels.level2();
-        }else if(levelsCompleted == 2){
+        }else if(Uitgang.getLevelCompleted() == 2){
             speelveld = Levels.level3();
-        }else if(levelsCompleted == 3){
+        }else if(Uitgang.getLevelCompleted() == 3){
             speelveld = Levels.level4();
         }else{
             speelveld = Levels.level5();
@@ -106,7 +105,7 @@ public class GUI extends JPanel {
                         speelveld[temp[0]][temp[1]] = new Vakje();
                         if(surrouding instanceof Uitgang) {
                             frame.dispose();
-                            levelsCompleted++;
+                            Uitgang.setLevelCompleted();
                             Uitgang.restartLevel();
                         }
                     }
@@ -121,7 +120,7 @@ public class GUI extends JPanel {
                         speelveld[temp[0]][temp[1]] = new Vakje();
                         if(surrouding instanceof Uitgang) {
                             frame.dispose();
-                            levelsCompleted++;
+                            Uitgang.setLevelCompleted();
                             Uitgang.restartLevel();
                         }
                     }
@@ -136,7 +135,7 @@ public class GUI extends JPanel {
                         speelveld[temp[0]][temp[1]] = new Vakje();
                         if(surrouding instanceof Uitgang) {
                             frame.dispose();
-                            levelsCompleted++;
+                            Uitgang.setLevelCompleted();
                             Uitgang.restartLevel();
                         }
                     }
@@ -151,7 +150,7 @@ public class GUI extends JPanel {
                         speelveld[temp[0]][temp[1]] = new Vakje();
                         if(surrouding instanceof Uitgang) {
                             frame.dispose();
-                            levelsCompleted++;
+                            Uitgang.setLevelCompleted();
                             Uitgang.restartLevel();
                         }
                     }
@@ -172,5 +171,5 @@ public class GUI extends JPanel {
         public void keyReleased(KeyEvent e) {
 
         }
-    };
+    }
 }
