@@ -8,8 +8,9 @@ public class Uitgang extends JComponent {
 
     }
 
-    public void nextLevel(){
-
+    public static void nieuwLevel(){
+        GUI level = new GUI();
+        level.startProgram();
     }
 
     public void paintComponent(Graphics g){
