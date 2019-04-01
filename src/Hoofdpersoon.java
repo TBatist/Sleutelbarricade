@@ -42,7 +42,7 @@ public class Hoofdpersoon extends JComponent {
         JComponent vakje = null;
         switch (direction){
             case 'r':
-                if(temp[1] + 1 <= 3) {
+                if(temp[1] + 1 <= 9) {
                     vakje = speelveld[temp[0]][temp[1] + 1];
                 }
                 break;
@@ -57,7 +57,7 @@ public class Hoofdpersoon extends JComponent {
                 }
                 break;
             case 'd':
-                if(temp[0] + 1 <= 3) {
+                if(temp[0] + 1 <= 9) {
                     vakje = speelveld[temp[0] + 1][temp[1]];
                 }
                 break;

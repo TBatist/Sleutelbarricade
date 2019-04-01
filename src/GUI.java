@@ -16,7 +16,7 @@ public class GUI extends JPanel {
 
 
 
-    private static JComponent[][] speelveld = new JComponent[4][4];
+    private static JComponent[][] speelveld = new JComponent[10][10];
 
     public static JComponent[][] getSpeelveld() {
         return speelveld;
@@ -24,8 +24,8 @@ public class GUI extends JPanel {
 
     public static int[] getHoofdpersoon(){
         int[] temp = new int[2];
-        for (i = 0; i < 4; i++) {
-            for (j = 0; j < 4; j++) {
+        for (i = 0; i < 10; i++) {
+            for (j = 0; j < 10; j++) {
                 if (speelveld[i][j] instanceof Hoofdpersoon) {
                     temp[0] = i;
                     temp[1] = j;
@@ -46,7 +46,7 @@ public class GUI extends JPanel {
         border = BorderFactory.createLineBorder(Color.black);
         panel = new JPanel();
         frame = new JFrame();
-        panel.setLayout(new GridLayout(4, 4));
+        panel.setLayout(new GridLayout(10, 10));
         KeyListener listener = new addKeyListener();
         frame.addKeyListener(listener);
 
@@ -62,8 +62,8 @@ public class GUI extends JPanel {
 
 
 
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
                 if(!(speelveld[i][j] instanceof JComponent)){
                     speelveld[i][j] = new Vakje();
                 }
@@ -95,10 +95,9 @@ public class GUI extends JPanel {
             switch(keyCode) {
                 case KeyEvent.VK_RIGHT:
                     surrouding = Hoofdpersoon.surrounding('r');
-                    if (temp[1] + 1 <= 3 && (surrouding instanceof Vakje) || (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || (surrouding instanceof Schaar) || surrouding instanceof Uitgang) {
+                    if (temp[1] + 1 <= 9 && (surrouding instanceof Vakje) || (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || (surrouding instanceof Schaar) || surrouding instanceof Uitgang) {
                         if(surrouding instanceof Schaar){
                             hoofdPersoon.addSchaar((Schaar) surrouding);
-                            System.out.println(hoofdPersoon.getString());
                         }
                         speelveld[temp[0]][temp[1] + 1] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
@@ -138,7 +137,7 @@ public class GUI extends JPanel {
                     break;
                 case KeyEvent.VK_DOWN:
                     surrouding = Hoofdpersoon.surrounding('d');
-                    if (temp[0] + 1 <= 3 && (surrouding instanceof Vakje)|| (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || (surrouding instanceof Schaar) || surrouding instanceof Uitgang) {
+                    if (temp[0] + 1 <= 9 && (surrouding instanceof Vakje)|| (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || (surrouding instanceof Schaar) || surrouding instanceof Uitgang) {
                         if(surrouding instanceof Schaar){
                             hoofdPersoon.addSchaar((Schaar) surrouding);
                         }
@@ -152,8 +151,8 @@ public class GUI extends JPanel {
                     break;
             }
 
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0; j < 4; j++) {
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < 10; j++) {
                     speelveld[i][j].setBorder(border);
                     panel.add(speelveld[i][j]);
                 }
