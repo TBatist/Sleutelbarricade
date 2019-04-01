@@ -69,15 +69,8 @@ public class Hoofdpersoon extends JComponent {
     }
 
     public void paintComponent(Graphics g) {
-        //g.setColor(Color.RED);
-        //g.fillOval(0, 0, 80, 80);
-        Image image = null;
-        try {
-            image = ImageIO.read(new File("//Kurby.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        g.drawImage(image, 0,0,this);
+        g.setColor(Color.RED);
+        g.fillOval(0, 0, 80, 80);
     }
 
 

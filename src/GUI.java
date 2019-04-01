@@ -54,7 +54,7 @@ public class GUI extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-
+        speelveld = Levels.level1();
 
 
         for (int i = 0; i < 10; i++) {

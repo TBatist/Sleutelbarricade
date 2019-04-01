@@ -3,7 +3,7 @@ import javax.swing.*;
 public class Levels extends JPanel {
 
 
-    public JComponent[][] level1() {
+    public static JComponent[][] level1() {
         JComponent [][] speelveld = GUI.getSpeelveld();
         speelveld[0][0] = new Hoofdpersoon();
         speelveld[1][0] = new VasteMuur();
