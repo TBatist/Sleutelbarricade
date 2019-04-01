@@ -1,7 +1,10 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Hoofdpersoon extends JComponent {
@@ -66,8 +69,15 @@ public class Hoofdpersoon extends JComponent {
     }
 
     public void paintComponent(Graphics g) {
-        g.setColor(Color.RED);
-        g.fillOval(0, 0, 80, 80);
+        //g.setColor(Color.RED);
+        //g.fillOval(0, 0, 80, 80);
+        Image image = null;
+        try {
+            image = ImageIO.read(new File("//Kurby.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        g.drawImage(image, 0,0,this);
     }
 
 
