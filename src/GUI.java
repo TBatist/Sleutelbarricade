@@ -52,7 +52,7 @@ public class GUI extends JPanel {
 
         frame.setTitle("Sleutelbarricade");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        //levelsCompleted++;
         if(levelsCompleted == 0) {
             speelveld = Levels.level1();
         }else if(levelsCompleted == 1){
@@ -81,6 +81,9 @@ public class GUI extends JPanel {
         frame.setVisible(true);
     }
 
+    /**
+     *
+     */
     public class addKeyListener implements KeyListener{
 
         @Override
