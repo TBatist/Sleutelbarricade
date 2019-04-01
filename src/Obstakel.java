@@ -2,13 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Obstakel extends JComponent {
-    private static int waarde;
+    private int waarde;
 
     public Obstakel(int waarde){
         this.waarde = waarde;
     }
 
-    public static int getWaarde(){
+    public int getWaarde(){
         return waarde;
     }
 

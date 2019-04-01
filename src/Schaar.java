@@ -2,13 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Schaar extends JComponent {
-    private static int waarde;
+    private int waarde;
 
     public Schaar(int waarde){
         this.waarde = waarde;
     }
 
-    public static int getWaarde(){
+    public int getWaarde(){
         return waarde;
     }
 
