@@ -103,7 +103,7 @@ public class GUI extends JPanel {
                         speelveld[temp[0]][temp[1]] = new Vakje();
                         if(surrouding instanceof Uitgang) {
                             frame.dispose();
-                            Uitgang.nieuwLevel();
+                            Uitgang.restartLevel();
                         }
                     }
                     break;
@@ -117,7 +117,7 @@ public class GUI extends JPanel {
                         speelveld[temp[0]][temp[1]] = new Vakje();
                         if(surrouding instanceof Uitgang) {
                             frame.dispose();
-                            Uitgang.nieuwLevel();
+                            Uitgang.restartLevel();
                         }
                     }
                     break;
@@ -131,7 +131,7 @@ public class GUI extends JPanel {
                         speelveld[temp[0]][temp[1]] = new Vakje();
                         if(surrouding instanceof Uitgang) {
                             frame.dispose();
-                            Uitgang.nieuwLevel();
+                            Uitgang.restartLevel();
                         }
                     }
                     break;
@@ -145,7 +145,7 @@ public class GUI extends JPanel {
                         speelveld[temp[0]][temp[1]] = new Vakje();
                         if(surrouding instanceof Uitgang) {
                             frame.dispose();
-                            Uitgang.nieuwLevel();
+                            Uitgang.restartLevel();
                         }
                     }
                     break;
