@@ -3,9 +3,14 @@ import javax.swing.border.Border;
 import java.awt.*;
 
 public class Uitgang extends JComponent {
+    private static int levelCompleted = 0;
 
-    public void winnen(){
+    public static void setLevelCompleted(){
+        levelCompleted++;
+    }
 
+    public static int getLevelCompleted(){
+        return levelCompleted;
     }
 
     public static void restartLevel(){
