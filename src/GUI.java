@@ -95,43 +95,59 @@ public class GUI extends JPanel {
             switch(keyCode) {
                 case KeyEvent.VK_RIGHT:
                     surrouding = Hoofdpersoon.surrounding('r');
-                    if (temp[1] + 1 <= 3 && (surrouding instanceof Vakje) || (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || surrouding instanceof Schaar) {
+                    if (temp[1] + 1 <= 3 && (surrouding instanceof Vakje) || (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || (surrouding instanceof Schaar) || surrouding instanceof Uitgang) {
                         if(surrouding instanceof Schaar){
                             hoofdPersoon.addSchaar((Schaar) surrouding);
                             System.out.println(hoofdPersoon.getString());
                         }
                         speelveld[temp[0]][temp[1] + 1] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
+                        if(surrouding instanceof Uitgang) {
+                            frame.dispose();
+                            Uitgang.nieuwLevel();
+                        }
                     }
                     break;
                 case KeyEvent.VK_LEFT:
                     surrouding = Hoofdpersoon.surrounding('l');
-                    if (temp[1] - 1 >= 0 && (surrouding instanceof Vakje)|| (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || surrouding instanceof Schaar) {
+                    if (temp[1] - 1 >= 0 && (surrouding instanceof Vakje)|| (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || (surrouding instanceof Schaar) || surrouding instanceof Uitgang) {
                         if(surrouding instanceof Schaar){
                             hoofdPersoon.addSchaar((Schaar) surrouding);
                         }
                         speelveld[temp[0]][temp[1] - 1] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
+                        if(surrouding instanceof Uitgang) {
+                            frame.dispose();
+                            Uitgang.nieuwLevel();
+                        }
                     }
                     break;
                 case KeyEvent.VK_UP:
                     surrouding = Hoofdpersoon.surrounding('u');
-                    if (temp[0] - 1 >= 0 && (surrouding instanceof Vakje) || (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || surrouding instanceof Schaar) {
+                    if (temp[0] - 1 >= 0 && (surrouding instanceof Vakje) || (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || (surrouding instanceof Schaar) || surrouding instanceof Uitgang) {
                         if(surrouding instanceof Schaar){
                             hoofdPersoon.addSchaar((Schaar) surrouding);
                         }
                         speelveld[temp[0] - 1][temp[1]] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
+                        if(surrouding instanceof Uitgang) {
+                            frame.dispose();
+                            Uitgang.nieuwLevel();
+                        }
                     }
                     break;
                 case KeyEvent.VK_DOWN:
                     surrouding = Hoofdpersoon.surrounding('d');
-                    if (temp[0] + 1 <= 3 && (surrouding instanceof Vakje)|| (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || surrouding instanceof Schaar) {
+                    if (temp[0] + 1 <= 3 && (surrouding instanceof Vakje)|| (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || (surrouding instanceof Schaar) || surrouding instanceof Uitgang) {
                         if(surrouding instanceof Schaar){
                             hoofdPersoon.addSchaar((Schaar) surrouding);
                         }
                         speelveld[temp[0] + 1][temp[1]] = hoofdPersoon;
                         speelveld[temp[0]][temp[1]] = new Vakje();
+                        if(surrouding instanceof Uitgang) {
+                            frame.dispose();
+                            Uitgang.nieuwLevel();
+                        }
                     }
                     break;
             }
