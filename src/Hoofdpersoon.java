@@ -1,26 +1,27 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Hoofdpersoon extends JComponent {
-    private static int raspWaarde;
+    private static int schaarWaarde;
 
     public Hoofdpersoon() {
-        raspWaarde = 0;
+        schaarWaarde = 0;
     }
 
-    public static boolean checkWaarde(Kaas kaas) {
-        if(raspWaarde == kaas.getWaarde()){
+    public static boolean checkWaarde(Obstakel obstakel) {
+        if(schaarWaarde == obstakel.getWaarde()){
             return true;
         }
         return false;
     }
 
-    public void setSchaarWaarde(Rasp rasp){
-        this.raspWaarde = rasp.getWaarde();
+    public void setSchaarWaarde(Schaar schaar){
+        this.schaarWaarde = schaar.getWaarde();
     }
 
     public int getSchaarWaarde(){
-        return this.raspWaarde;
+        return this.schaarWaarde;
     }
 
     public static int[] getHoofdpersoonLocation(){
@@ -73,36 +74,36 @@ public class Hoofdpersoon extends JComponent {
         JComponent[][] speelveld = GUI.getSpeelveld();
         switch (direction) {
             case 'r':
-                if (temp[1] + 1 <= 9 && (surrounding instanceof Vakje) || (surrounding instanceof Kaas && Hoofdpersoon.checkWaarde((Kaas) surrounding)) || (surrounding instanceof Rasp) || surrounding instanceof Uitgang) {
-                    if (surrounding instanceof Rasp) {
-                        hoofdPersoon.setSchaarWaarde((Rasp) surrounding);
+                if (temp[1] + 1 <= 9 && (surrounding instanceof Vakje) || (surrounding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrounding)) || (surrounding instanceof Schaar) || surrounding instanceof Uitgang) {
+                    if (surrounding instanceof Schaar) {
+                        hoofdPersoon.setSchaarWaarde((Schaar) surrounding);
                     }
                     speelveld[temp[0]][temp[1] + 1] = hoofdPersoon;
                     speelveld[temp[0]][temp[1]] = new Vakje();
                 }
                 break;
             case 'l':
-                if (temp[1] + 1 >= 0 && (surrounding instanceof Vakje) || (surrounding instanceof Kaas && Hoofdpersoon.checkWaarde((Kaas) surrounding)) || (surrounding instanceof Rasp) || surrounding instanceof Uitgang) {
-                    if (surrounding instanceof Rasp) {
-                        hoofdPersoon.setSchaarWaarde((Rasp) surrounding);
+                if (temp[1] + 1 >= 0 && (surrounding instanceof Vakje) || (surrounding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrounding)) || (surrounding instanceof Schaar) || surrounding instanceof Uitgang) {
+                    if (surrounding instanceof Schaar) {
+                        hoofdPersoon.setSchaarWaarde((Schaar) surrounding);
                     }
                     speelveld[temp[0]][temp[1] - 1] = hoofdPersoon;
                     speelveld[temp[0]][temp[1]] = new Vakje();
                 }
                 break;
             case 'u':
-                if (temp[0] - 1 >= 0 && (surrounding instanceof Vakje) || (surrounding instanceof Kaas && Hoofdpersoon.checkWaarde((Kaas) surrounding)) || (surrounding instanceof Rasp) || surrounding instanceof Uitgang) {
-                    if (surrounding instanceof Rasp) {
-                        hoofdPersoon.setSchaarWaarde((Rasp) surrounding);
+                if (temp[0] - 1 >= 0 && (surrounding instanceof Vakje) || (surrounding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrounding)) || (surrounding instanceof Schaar) || surrounding instanceof Uitgang) {
+                    if (surrounding instanceof Schaar) {
+                        hoofdPersoon.setSchaarWaarde((Schaar) surrounding);
                     }
                     speelveld[temp[0] - 1][temp[1]] = hoofdPersoon;
                     speelveld[temp[0]][temp[1]] = new Vakje();
                 }
                 break;
             case 'd':
-                if (temp[0] + 1 <= 9 && (surrounding instanceof Vakje) || (surrounding instanceof Kaas && Hoofdpersoon.checkWaarde((Kaas) surrounding)) || (surrounding instanceof Rasp) || surrounding instanceof Uitgang) {
-                    if (surrounding instanceof Rasp) {
-                        hoofdPersoon.setSchaarWaarde((Rasp) surrounding);
+                if (temp[0] + 1 <= 9 && (surrounding instanceof Vakje) || (surrounding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrounding)) || (surrounding instanceof Schaar) || surrounding instanceof Uitgang) {
+                    if (surrounding instanceof Schaar) {
+                        hoofdPersoon.setSchaarWaarde((Schaar) surrounding);
                     }
                     speelveld[temp[0] + 1][temp[1]] = hoofdPersoon;
                     speelveld[temp[0]][temp[1]] = new Vakje();
@@ -110,8 +111,8 @@ public class Hoofdpersoon extends JComponent {
                 }
                 break;
         }
-        if(surrounding instanceof Kaas){
-            raspWaarde = 0;
+        if(surrounding instanceof Obstakel){
+            schaarWaarde = 0;
         }
         if (surrounding instanceof Uitgang) {
             Uitgang.restartLevel();
