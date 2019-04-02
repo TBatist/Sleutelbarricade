@@ -34,9 +34,24 @@ public class Hoofdpersoon extends JComponent {
         return temp;
     }
 
+    public static int[] getHoofdpersoonLocation(){
+        JComponent[][] speelveld = GUI.getSpeelveld();
+        int[] temp = new int[2];
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (speelveld[i][j] instanceof Hoofdpersoon) {
+                    temp[0] = i;
+                    temp[1] = j;
+                    return temp;
+                }
+            }
+        }
+        return null;
+    }
+
     public static JComponent surrounding(char direction){
         JComponent[][] speelveld = GUI.getSpeelveld();
-        int[] temp = GUI.getHoofdpersoonLocation();
+        int[] temp = getHoofdpersoonLocation();
         JComponent vakje = null;
         switch (direction){
             case 'r':
@@ -64,7 +79,7 @@ public class Hoofdpersoon extends JComponent {
     }
 
     public static void moveHoofdpersoon(JComponent surrounding, char direction) {
-        int[] temp = GUI.getHoofdpersoonLocation();
+        int[] temp = getHoofdpersoonLocation();
         Hoofdpersoon hoofdPersoon = GUI.getHoofdPersoon();
         JComponent[][] speelveld = GUI.getSpeelveld();
         switch (direction) {
