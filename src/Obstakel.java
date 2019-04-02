@@ -1,12 +1,25 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
 
 public class Obstakel extends JComponent {
     private int waarde;
     private String waardeString;
+    private BufferedImage imageKaas;
 
     public Obstakel(int waarde){
         this.waarde = waarde;
+
+        URL resource = getClass().getResource("blokKaas.png");
+        try {
+            imageKaas = ImageIO.read(resource);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public int getWaarde(){
@@ -14,12 +27,12 @@ public class Obstakel extends JComponent {
     }
 
     public void paintComponent(Graphics g) {
-        g.setColor(Color.BLUE);
-        g.fillRect(0, 0, 80, 80);
+        super.paintComponent(g);
+        g.drawImage(imageKaas, 0, 0, 100,100,this);
         g.setColor(Color.BLACK);
         getWaarde();
         waardeString = Integer.toString(waarde);
-        g.drawString(waardeString,10,90);
+        g.drawString(waardeString,5,15);
     }
 
 }

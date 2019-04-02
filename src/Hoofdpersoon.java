@@ -66,6 +66,7 @@ public class Hoofdpersoon extends JComponent {
     public void paintComponent(Graphics g) {
         g.setColor(Color.RED);
         g.fillOval(0, 0, 80, 80);
+
     }
 
 
