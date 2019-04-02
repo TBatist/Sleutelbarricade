@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 
-public class Uitgang extends Vakje {
+public class Uitgang extends JComponent {
     private static int levelCompleted = 0;
     private BufferedImage imageUitgang;
 

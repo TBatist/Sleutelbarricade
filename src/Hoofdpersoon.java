@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 
-public class Hoofdpersoon extends Vakje {
+public class Hoofdpersoon extends JComponent {
     private static int raspWaarde;
     private BufferedImage imagePatrick;
 
@@ -35,7 +35,7 @@ public class Hoofdpersoon extends Vakje {
     }
 
     public static int[] getHoofdpersoonLocation(){
-        Vakje[][] speelveld = GUI.getSpeelveld();
+        JComponent[][] speelveld = GUI.getSpeelveld();
         int[] temp = new int[2];
         for (int rij = 0; rij < 10; rij++) {
             for (int kolom = 0; kolom < 10; kolom++) {
@@ -49,8 +49,8 @@ public class Hoofdpersoon extends Vakje {
         return null;
     }
 
-    public static Vakje surrounding(char direction){
-        Vakje[][] speelveld = GUI.getSpeelveld();
+    public static JComponent surrounding(char direction){
+        JComponent[][] speelveld = GUI.getSpeelveld();
         int[] temp = getHoofdpersoonLocation();
         switch (direction){
             case 'r':
@@ -77,15 +77,15 @@ public class Hoofdpersoon extends Vakje {
         return null;
     }
 
-    public static void moveHoofdpersoon(Vakje surrounding, char direction) {
+    public static void moveHoofdpersoon(JComponent surrounding, char direction) {
         int[] temp = getHoofdpersoonLocation();
         Hoofdpersoon hoofdPersoon = GUI.getHoofdPersoon();
-        Vakje[][] speelveld = GUI.getSpeelveld();
-        if(!(surrounding == null || surrounding instanceof VasteMuur)) {
+        JComponent[][] speelveld = GUI.getSpeelveld();
+        if(!(surrounding instanceof VasteMuur || surrounding == null)) {
             if (surrounding instanceof Rasp) {
                 hoofdPersoon.setRaspWaarde((Rasp) surrounding);
             }
-            if (!(surrounding instanceof Kaas) || (surrounding instanceof Kaas && Hoofdpersoon.checkWaarde((Kaas) surrounding))) {
+            if (!(surrounding instanceof Kaas) || (Hoofdpersoon.checkWaarde((Kaas) surrounding))) {
                 switch (direction) {
                     case 'r':
                         speelveld[temp[0]][temp[1] + 1] = hoofdPersoon;

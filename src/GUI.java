@@ -11,13 +11,13 @@ public class GUI extends JPanel {
     private static Border border;
     public static JFrame frame;
     private static Hoofdpersoon hoofdPersoon = new Hoofdpersoon();
-    private static Vakje[][] speelveld = new Vakje[10][10];
+    private static JComponent[][] speelveld = new JComponent[10][10];
 
-    public static Vakje[][] getSpeelveld() {
+    public static JComponent[][] getSpeelveld() {
         return speelveld;
     }
 
-    public static void setSpeelveld(Vakje[][] nieuwVeld){
+    public static void setSpeelveld(JComponent[][] nieuwVeld){
         speelveld = nieuwVeld;
     }
 
@@ -59,9 +59,6 @@ public class GUI extends JPanel {
 
         for (int rij = 0; rij < 10; rij++) {
             for (int kolom = 0; kolom < 10; kolom++) {
-                if(speelveld[rij][kolom] == null){
-                    speelveld[rij][kolom] = new Vakje();
-                }
                 panel.add(speelveld[rij][kolom]);
                 speelveld[rij][kolom].setBorder(border);
             }

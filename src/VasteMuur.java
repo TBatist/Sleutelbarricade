@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 
-public class VasteMuur extends Vakje {
+public class VasteMuur extends JComponent {
     private BufferedImage imageMuur;
 
     public VasteMuur(){
