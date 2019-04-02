@@ -24,10 +24,6 @@ public class Rasp extends JComponent {
         return waarde;
     }
 
-    public void setWaarde(int waarde){
-        this.waarde = waarde;
-    }
-
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(imageRasp, 15, 10, 75,85,this);
