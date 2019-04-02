@@ -11,8 +11,8 @@ public class GUI extends JPanel {
     private static int j;
     private static JPanel panel;
     private static Border border;
-    private static JFrame frame;
-    private Hoofdpersoon hoofdPersoon = new Hoofdpersoon();
+    public static JFrame frame;
+    private static Hoofdpersoon hoofdPersoon = new Hoofdpersoon();
 
 
     private static JComponent[][] speelveld = new JComponent[10][10];
@@ -21,7 +21,7 @@ public class GUI extends JPanel {
         return speelveld;
     }
 
-    public static int[] getHoofdpersoon(){
+    public static int[] getHoofdpersoonLocation(){
         int[] temp = new int[2];
         for (i = 0; i < 10; i++) {
             for (j = 0; j < 10; j++) {
@@ -33,6 +33,10 @@ public class GUI extends JPanel {
             }
         }
         return null;
+    }
+
+    public static Hoofdpersoon getHoofdPersoon(){
+        return hoofdPersoon;
     }
 
     public static void main(String[] args) {
@@ -90,70 +94,26 @@ public class GUI extends JPanel {
         @Override
         public void keyPressed(KeyEvent e) {
             int keyCode = e.getKeyCode();
-            JComponent[][] speelveld = GUI.getSpeelveld();
+
             panel.removeAll();
-            int[] temp = getHoofdpersoon();
-            JComponent surrouding;
+
+            JComponent surrounding;
             switch(keyCode) {
                 case KeyEvent.VK_RIGHT:
-                    surrouding = Hoofdpersoon.surrounding('r');
-                    if (temp[1] + 1 <= 9 && (surrouding instanceof Vakje) || (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || (surrouding instanceof Schaar) || surrouding instanceof Uitgang) {
-                        if(surrouding instanceof Schaar){
-                            hoofdPersoon.addSchaar((Schaar) surrouding);
-                        }
-                        speelveld[temp[0]][temp[1] + 1] = hoofdPersoon;
-                        speelveld[temp[0]][temp[1]] = new Vakje();
-                        if(surrouding instanceof Uitgang) {
-                            frame.dispose();
-                            Uitgang.setLevelCompleted();
-                            Uitgang.restartLevel();
-                        }
-                    }
+                    surrounding = Hoofdpersoon.surrounding('r');
+                    Hoofdpersoon.moveHoofdpersoon(surrounding, 'r');
                     break;
                 case KeyEvent.VK_LEFT:
-                    surrouding = Hoofdpersoon.surrounding('l');
-                    if (temp[1] - 1 >= 0 && (surrouding instanceof Vakje)|| (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || (surrouding instanceof Schaar) || surrouding instanceof Uitgang) {
-                        if(surrouding instanceof Schaar){
-                            hoofdPersoon.addSchaar((Schaar) surrouding);
-                        }
-                        speelveld[temp[0]][temp[1] - 1] = hoofdPersoon;
-                        speelveld[temp[0]][temp[1]] = new Vakje();
-                        if(surrouding instanceof Uitgang) {
-                            frame.dispose();
-                            Uitgang.setLevelCompleted();
-                            Uitgang.restartLevel();
-                        }
-                    }
+                    surrounding = Hoofdpersoon.surrounding('l');
+                    Hoofdpersoon.moveHoofdpersoon(surrounding, 'l');
                     break;
                 case KeyEvent.VK_UP:
-                    surrouding = Hoofdpersoon.surrounding('u');
-                    if (temp[0] - 1 >= 0 && (surrouding instanceof Vakje) || (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || (surrouding instanceof Schaar) || surrouding instanceof Uitgang) {
-                        if(surrouding instanceof Schaar){
-                            hoofdPersoon.addSchaar((Schaar) surrouding);
-                        }
-                        speelveld[temp[0] - 1][temp[1]] = hoofdPersoon;
-                        speelveld[temp[0]][temp[1]] = new Vakje();
-                        if(surrouding instanceof Uitgang) {
-                            frame.dispose();
-                            Uitgang.setLevelCompleted();
-                            Uitgang.restartLevel();
-                        }
-                    }
+                    surrounding = Hoofdpersoon.surrounding('u');
+                    Hoofdpersoon.moveHoofdpersoon(surrounding, 'u');
                     break;
                 case KeyEvent.VK_DOWN:
-                    surrouding = Hoofdpersoon.surrounding('d');
-                    if (temp[0] + 1 <= 9 && (surrouding instanceof Vakje)|| (surrouding instanceof Obstakel && Hoofdpersoon.checkWaarde((Obstakel) surrouding)) || (surrouding instanceof Schaar) || surrouding instanceof Uitgang) {
-                        if(surrouding instanceof Schaar){
-                            hoofdPersoon.addSchaar((Schaar) surrouding);
-                        }
-                        speelveld[temp[0] + 1][temp[1]] = hoofdPersoon;
-                        speelveld[temp[0]][temp[1]] = new Vakje();
-                        if(surrouding instanceof Uitgang) {
-                            frame.dispose();
-                            Uitgang.setLevelCompleted();
-                            Uitgang.restartLevel();
-                        }
-                    }
+                    surrounding = Hoofdpersoon.surrounding('d');
+                    Hoofdpersoon.moveHoofdpersoon(surrounding, 'd');
                     break;
             }
 
