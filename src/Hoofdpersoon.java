@@ -123,7 +123,9 @@ public class Hoofdpersoon extends JComponent {
                 break;
         }
         if(surrounding instanceof Kaas){
-            raspWaarde = 0;
+            if(Hoofdpersoon.checkWaarde((Kaas) surrounding)){
+                raspWaarde = 0;
+            }
         }
         if (surrounding instanceof Uitgang) {
             Uitgang.restartLevel();
