@@ -140,8 +140,6 @@ public class Hoofdpersoon extends JComponent {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(imagePatrick, -3, 0, 100,100,this);
-        //g.setColor(Color.RED);
-        //g.fillOval(0, 0, 80, 80);
 
     }
 
