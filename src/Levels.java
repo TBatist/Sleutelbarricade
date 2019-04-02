@@ -7,7 +7,7 @@ public class Levels extends JPanel {
 
 
 
-    public static JComponent[][] level1() {
+    public static Vakje[][] level1() {
         double[][] temp = {
         {4,0,0,0,0,0,0,0,0,0},
         {1,1,1,1,3.1,1,1,1,1,0},
@@ -23,7 +23,7 @@ public class Levels extends JPanel {
         return generateLevel(temp);
     }
 
-    public static JComponent[][] level2(){
+    public static Vakje[][] level2(){
         double[][] temp = {
                 {4,0,0,0,0,2.1,2.2,0,0,0},
                 {1,1,1,3.1,3.2,1,1,1,3.1,3.2},
@@ -39,7 +39,7 @@ public class Levels extends JPanel {
         return generateLevel(temp);
     }
 
-    public static JComponent[][] level3(){
+    public static Vakje[][] level3(){
         double[][] temp = {
                 {4,0,0,0,0,0,0,0,0,0},
                 {1,1,1,3.1,3.2,1,1,3.1,3.2},
@@ -55,20 +55,20 @@ public class Levels extends JPanel {
         return generateLevel(temp);
     }
 
-    public static JComponent[][] level4(){
-        JComponent [][] speelveld = GUI.getSpeelveld();
+    public static Vakje[][] level4(){
+        Vakje [][] speelveld = GUI.getSpeelveld();
         //Maak level hier
         return speelveld;
     }
 
-    public static JComponent[][] level5(){
-        JComponent [][] speelveld = GUI.getSpeelveld();
+    public static Vakje[][] level5(){
+        Vakje [][] speelveld = GUI.getSpeelveld();
         //Maak level hier
         return speelveld;
     }
 
-    public static JComponent[][] generateLevel(double[][] temp) {
-        JComponent [][] speelveld = GUI.getSpeelveld();
+    public static Vakje[][] generateLevel(double[][] temp) {
+        Vakje [][] speelveld = GUI.getSpeelveld();
         for (rij = 0; rij < 10; rij++) {
             for (kolom = 0; kolom < 10; kolom++) {
                 if (temp[rij][kolom] ==0) {

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class Hoofdpersoon extends JComponent {
+public class Hoofdpersoon extends Vakje {
     private static int raspWaarde;
     private BufferedImage imagePatrick;
 
@@ -36,7 +36,7 @@ public class Hoofdpersoon extends JComponent {
     }
 
     public static int[] getHoofdpersoonLocation(){
-        JComponent[][] speelveld = GUI.getSpeelveld();
+        Vakje[][] speelveld = GUI.getSpeelveld();
         int[] temp = new int[2];
         for (int rij = 0; rij < 10; rij++) {
             for (int kolom = 0; kolom < 10; kolom++) {
@@ -50,39 +50,38 @@ public class Hoofdpersoon extends JComponent {
         return null;
     }
 
-    public static JComponent surrounding(char direction){
-        JComponent[][] speelveld = GUI.getSpeelveld();
+    public static Vakje surrounding(char direction){
+        Vakje[][] speelveld = GUI.getSpeelveld();
         int[] temp = getHoofdpersoonLocation();
-        JComponent vakje = null;
         switch (direction){
             case 'r':
                 if(temp[1] + 1 <= 9) {
-                    vakje = speelveld[temp[0]][temp[1] + 1];
+                    return speelveld[temp[0]][temp[1] + 1];
                 }
                 break;
             case 'l':
                 if(temp[1] - 1 >= 0) {
-                    vakje = speelveld[temp[0]][temp[1] - 1];
+                    return speelveld[temp[0]][temp[1] - 1];
                 }
                 break;
             case 'u':
                 if(temp[0] - 1 >= 0){
-                    vakje = speelveld[temp[0] - 1][temp[1]];
+                    return speelveld[temp[0] - 1][temp[1]];
                 }
                 break;
             case 'd':
                 if(temp[0] + 1 <= 9) {
-                    vakje = speelveld[temp[0] + 1][temp[1]];
+                    return speelveld[temp[0] + 1][temp[1]];
                 }
                 break;
         }
-        return vakje;
+        return null;
     }
 
-    public static void moveHoofdpersoon(JComponent surrounding, char direction) {
+    public static void moveHoofdpersoon(Vakje surrounding, char direction) {
         int[] temp = getHoofdpersoonLocation();
         Hoofdpersoon hoofdPersoon = GUI.getHoofdPersoon();
-        JComponent[][] speelveld = GUI.getSpeelveld();
+        Vakje[][] speelveld = GUI.getSpeelveld();
         if(!(surrounding == null || surrounding instanceof VasteMuur)) {
             if (surrounding instanceof Rasp) {
                 hoofdPersoon.setRaspWaarde((Rasp) surrounding);
@@ -91,7 +90,6 @@ public class Hoofdpersoon extends JComponent {
                 switch (direction) {
                     case 'r':
                         speelveld[temp[0]][temp[1] + 1] = hoofdPersoon;
-
                         break;
                     case 'l':
                         speelveld[temp[0]][temp[1] - 1] = hoofdPersoon;

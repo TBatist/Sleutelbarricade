@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Uitgang extends JComponent {
+public class Uitgang extends Vakje {
     private static int levelCompleted = 1;
 
     public static void setLevelCompleted(){

@@ -11,14 +11,22 @@ public class GUI extends JPanel {
     private static Border border;
     public static JFrame frame;
     private static Hoofdpersoon hoofdPersoon = new Hoofdpersoon();
-    private static JComponent[][] speelveld = new JComponent[10][10];
+    private static Vakje[][] speelveld = new Vakje[10][10];
 
-    public static JComponent[][] getSpeelveld() {
+    public static Vakje[][] getSpeelveld() {
         return speelveld;
+    }
+
+    public static void setSpeelveld(Vakje[][] nieuwVeld){
+        speelveld = nieuwVeld;
     }
 
     public static Hoofdpersoon getHoofdPersoon(){
         return hoofdPersoon;
+    }
+
+    public static void setHoofdPersoon(Hoofdpersoon nieuwPersoon){
+        hoofdPersoon = nieuwPersoon;
     }
 
     public static void main(String[] args) {
@@ -51,7 +59,7 @@ public class GUI extends JPanel {
 
         for (int rij = 0; rij < 10; rij++) {
             for (int kolom = 0; kolom < 10; kolom++) {
-                if(!(speelveld[rij][kolom] instanceof JComponent)){
+                if(speelveld[rij][kolom] == null){
                     speelveld[rij][kolom] = new Vakje();
                 }
                 panel.add(speelveld[rij][kolom]);
@@ -74,23 +82,18 @@ public class GUI extends JPanel {
         public void keyPressed(KeyEvent e) {
             int keyCode = e.getKeyCode();
             panel.removeAll();
-            JComponent surrounding;
             switch(keyCode) {
                 case KeyEvent.VK_RIGHT:
-                    surrounding = Hoofdpersoon.surrounding('r');
-                    Hoofdpersoon.moveHoofdpersoon(surrounding, 'r');
+                    Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('r'), 'r');
                     break;
                 case KeyEvent.VK_LEFT:
-                    surrounding = Hoofdpersoon.surrounding('l');
-                    Hoofdpersoon.moveHoofdpersoon(surrounding, 'l');
+                    Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('l'), 'l');
                     break;
                 case KeyEvent.VK_UP:
-                    surrounding = Hoofdpersoon.surrounding('u');
-                    Hoofdpersoon.moveHoofdpersoon(surrounding, 'u');
+                    Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('u'), 'u');
                     break;
                 case KeyEvent.VK_DOWN:
-                    surrounding = Hoofdpersoon.surrounding('d');
-                    Hoofdpersoon.moveHoofdpersoon(surrounding, 'd');
+                    Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('d'), 'd');
                     break;
             }
 
