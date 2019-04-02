@@ -79,24 +79,24 @@ public class Levels extends JPanel {
                 }
                 if (temp[i][j]>=2 && temp[i][j]<3) {
                     if (temp[i][j] == 2.1) {
-                        speelveld[i][j] = new Schaar(100);
+                        speelveld[i][j] = new Rasp(100);
                     }
                     if (temp[i][j] == 2.2) {
-                        speelveld[i][j] = new Schaar(200);
+                        speelveld[i][j] = new Rasp(200);
                     }
                     if (temp[i][j] == 2.3) {
-                        speelveld[i][j] = new Schaar(300);
+                        speelveld[i][j] = new Rasp(300);
                     }
                 }
                 if (temp[i][j] >= 3 && temp[i][j] <4) {
                     if (temp[i][j] == 3.1) {
-                        speelveld[i][j] = new Obstakel(100);
+                        speelveld[i][j] = new Kaas(100);
                     }
                     if (temp[i][j] == 3.2) {
-                        speelveld[i][j] = new Obstakel(200);
+                        speelveld[i][j] = new Kaas(200);
                     }
                     if (temp[i][j] == 3.3){
-                        speelveld[i][j] = new Obstakel(300);
+                        speelveld[i][j] = new Kaas(300);
                     }
                 }
                 if (temp[i][j] == 4){

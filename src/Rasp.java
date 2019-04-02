@@ -5,12 +5,12 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 
-public class Schaar extends JComponent {
+public class Rasp extends JComponent {
     private int waarde;
     private String waardeString;
     private BufferedImage imageRasp;
 
-    public Schaar(int waarde){
+    public Rasp(int waarde){
         this.waarde = waarde;
         URL resource = getClass().getResource("kaasRasp.png");
         try {

@@ -5,12 +5,12 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 
-public class Obstakel extends JComponent {
+public class Kaas extends JComponent {
     private int waarde;
     private String waardeString;
     private BufferedImage imageKaas;
 
-    public Obstakel(int waarde){
+    public Kaas(int waarde){
         this.waarde = waarde;
 
         URL resource = getClass().getResource("blokKaas.png");
