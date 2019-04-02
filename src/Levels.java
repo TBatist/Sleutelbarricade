@@ -4,7 +4,16 @@ public class Levels extends JPanel {
     private static int rij;
     private static int kolom;
 
-
+    public static JComponent[][] fillSpeelveld(JComponent[][] speelveld){
+        for (rij = 0; rij < 10; rij++) {
+            for (kolom = 0; kolom < 10; kolom++) {
+                if(speelveld[rij][kolom] == null){
+                    speelveld[rij][kolom] = new Vakje();
+                }
+            }
+        }
+        return speelveld;
+    }
 
 
     public static JComponent[][] level1() {

@@ -78,21 +78,24 @@ public class GUI extends JPanel {
         @Override
         public void keyPressed(KeyEvent e) {
             int keyCode = e.getKeyCode();
+            char direction = 'w';
             panel.removeAll();
             switch(keyCode) {
                 case KeyEvent.VK_RIGHT:
-                    Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('r'), 'r');
+                    direction = 'r';
                     break;
                 case KeyEvent.VK_LEFT:
-                    Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('l'), 'l');
+                    direction = 'l';
                     break;
                 case KeyEvent.VK_UP:
-                    Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('u'), 'u');
+                    direction = 'u';
                     break;
                 case KeyEvent.VK_DOWN:
-                    Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('d'), 'd');
+                    direction = 'd';
+
                     break;
             }
+            Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding(direction), direction);
 
             for (int rij = 0; rij < 10; rij++) {
                 for (int kolom = 0; kolom < 10; kolom++) {
