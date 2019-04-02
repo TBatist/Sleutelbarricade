@@ -7,8 +7,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class GUI extends JPanel {
-    private static int i;
-    private static int j;
     private static JPanel panel;
     private static Border border;
     public static JFrame frame;
