@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class Schaar extends JComponent {
     private int waarde;
-    private String waardeString = Integer.toString(waarde);
+    private String waardeString;
 
     public Schaar(int waarde){
         this.waarde = waarde;
@@ -18,11 +18,11 @@ public class Schaar extends JComponent {
     }
 
     public void paintComponent(Graphics g) {
-        //g.setColor(Color.YELLOW);
-        //g.fillRect(0, 0, 80, 80);
+        g.setColor(Color.YELLOW);
+        g.fillRect(0, 0, 80, 80);
+        getWaarde();
+        waardeString = Integer.toString(waarde);
         g.setColor(Color.BLACK);
-        Font f = new Font("Comic Sans MS", Font.BOLD, 10);
-        g.setFont(f);
-        g.drawString("HOI", 0, 0);
+        g.drawString(waardeString, 10, 90);
     }
 }

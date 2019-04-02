@@ -10,7 +10,6 @@ public class Obstakel extends JComponent {
     }
 
     public int getWaarde(){
-
         return waarde;
     }
 
