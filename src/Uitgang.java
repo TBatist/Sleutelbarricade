@@ -14,6 +14,8 @@ public class Uitgang extends JComponent {
     }
 
     public static void restartLevel(){
+        setLevelCompleted();
+        GUI.frame.dispose();
         GUI level = new GUI();
         level.startProgram();
     }
