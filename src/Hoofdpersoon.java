@@ -11,7 +11,7 @@ public class Hoofdpersoon extends JComponent {
 
     public Hoofdpersoon() {
         raspWaarde = 0;
-        URL resource = getClass().getResource("patrick.png");
+        URL resource = getClass().getResource("Patrick.png");
         try {
             imagePatrick = ImageIO.read(resource);
         } catch (IOException e) {
