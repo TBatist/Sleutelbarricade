@@ -1,23 +1,12 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 
 public class Hoofdpersoon extends JComponent {
     private static ArrayList<Schaar> schaarLijst;
-    private BufferedImage imagePatrick;
 
     public Hoofdpersoon() {
         schaarLijst = new ArrayList<>();
-        URL resource = getClass().getResource("patrick.png");
-        try {
-            imagePatrick = ImageIO.read(resource);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public static boolean checkWaarde(Obstakel obstakel) {
@@ -138,8 +127,8 @@ public class Hoofdpersoon extends JComponent {
     }
 
     public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.drawImage(imagePatrick, -3, 0, 100,100,this);
+        g.setColor(Color.RED);
+        g.fillOval(0, 0, 80, 80);
 
     }
 

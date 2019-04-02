@@ -25,8 +25,24 @@ public class Levels extends JPanel {
 
     public static JComponent[][] level2(){
         double[][] temp = {
+                {4,0,0,0,0,2.1,2.2,0,0,0},
+                {1,1,1,3.1,3.2,1,1,1,3.1,3.2},
+                {2.2,0,0,0,0,1,2.1,0,0,0},
+                {0,0,0,0,0,1,0,0,0,0},
+                {1,1,1,1,3.2,1,3.1,1,1,1},
+                {0,0,2.1,0,0,1,0,0,0,0},
+                {3.1,1,1,1,1,1,1,1,1,3.2},
+                {0,0,0,0,0,1,2.3,2.2,0,0},
+                {0,2.2,2.3,0,0,1,1,1,1,3.1},
+                {0,0,0,0,0,3.1,3.2,3.3,2.1,5}
+                };
+        return generateLevel(temp);
+    }
+
+    public static JComponent[][] level3(){
+        double[][] temp = {
                 {4,0,0,0,0,0,0,0,0,0},
-                {1,1,1,3.1,3.2,1,1,3.1,3.2,0},
+                {1,1,1,3.1,3.2,1,1,3.1,3.2},
                 {0,0,0,0,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0},
@@ -37,12 +53,6 @@ public class Levels extends JPanel {
                 {0,0,0,0,0,0,0,0,0,0},
         };
         return generateLevel(temp);
-    }
-
-    public static JComponent[][] level3(){
-        JComponent [][] speelveld = GUI.getSpeelveld();
-        //Maak level hier
-        return speelveld;
     }
 
     public static JComponent[][] level4(){
