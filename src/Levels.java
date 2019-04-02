@@ -1,8 +1,8 @@
 import javax.swing.*;
 
 public class Levels extends JPanel {
-    private static int i;
-    private static int j;
+    private static int rij;
+    private static int kolom;
 
 
 
@@ -69,41 +69,41 @@ public class Levels extends JPanel {
 
     public static JComponent[][] generateLevel(double[][] temp) {
         JComponent [][] speelveld = GUI.getSpeelveld();
-        for (i = 0; i < 10; i++) {
-            for (j = 0; j < 10; j++) {
-                if (temp[i][j] ==0) {
-                    speelveld[i][j] = new Vakje();
+        for (rij = 0; rij < 10; rij++) {
+            for (kolom = 0; kolom < 10; kolom++) {
+                if (temp[rij][kolom] ==0) {
+                    speelveld[rij][kolom] = new Vakje();
                 }
-                if (temp[i][j]==1) {
-                    speelveld[i][j] = new VasteMuur();
+                if (temp[rij][kolom]==1) {
+                    speelveld[rij][kolom] = new VasteMuur();
                 }
-                if (temp[i][j]>=2 && temp[i][j]<3) {
-                    if (temp[i][j] == 2.1) {
-                        speelveld[i][j] = new Rasp(100);
+                if (temp[rij][kolom]>=2 && temp[rij][kolom]<3) {
+                    if (temp[rij][kolom] == 2.1) {
+                        speelveld[rij][kolom] = new Rasp(100);
                     }
-                    if (temp[i][j] == 2.2) {
-                        speelveld[i][j] = new Rasp(200);
+                    if (temp[rij][kolom] == 2.2) {
+                        speelveld[rij][kolom] = new Rasp(200);
                     }
-                    if (temp[i][j] == 2.3) {
-                        speelveld[i][j] = new Rasp(300);
-                    }
-                }
-                if (temp[i][j] >= 3 && temp[i][j] <4) {
-                    if (temp[i][j] == 3.1) {
-                        speelveld[i][j] = new Kaas(100);
-                    }
-                    if (temp[i][j] == 3.2) {
-                        speelveld[i][j] = new Kaas(200);
-                    }
-                    if (temp[i][j] == 3.3){
-                        speelveld[i][j] = new Kaas(300);
+                    if (temp[rij][kolom] == 2.3) {
+                        speelveld[rij][kolom] = new Rasp(300);
                     }
                 }
-                if (temp[i][j] == 4){
-                    speelveld[i][j] = new Hoofdpersoon();
+                if (temp[rij][kolom] >= 3 && temp[rij][kolom] <4) {
+                    if (temp[rij][kolom] == 3.1) {
+                        speelveld[rij][kolom] = new Kaas(100);
+                    }
+                    if (temp[rij][kolom] == 3.2) {
+                        speelveld[rij][kolom] = new Kaas(200);
+                    }
+                    if (temp[rij][kolom] == 3.3){
+                        speelveld[rij][kolom] = new Kaas(300);
+                    }
                 }
-                if (temp[i][j] == 5) {
-                    speelveld[i][j] = new Uitgang();
+                if (temp[rij][kolom] == 4){
+                    speelveld[rij][kolom] = new Hoofdpersoon();
+                }
+                if (temp[rij][kolom] == 5) {
+                    speelveld[rij][kolom] = new Uitgang();
                 }
             }
         }
