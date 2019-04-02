@@ -49,13 +49,13 @@ public class GUI extends JPanel {
             speelveld = Levels.level5();
         }
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                if(!(speelveld[i][j] instanceof JComponent)){
-                    speelveld[i][j] = new Vakje();
+        for (int rij = 0; rij < 10; rij++) {
+            for (int kolom = 0; kolom < 10; kolom++) {
+                if(!(speelveld[rij][kolom] instanceof JComponent)){
+                    speelveld[rij][kolom] = new Vakje();
                 }
-                panel.add(speelveld[i][j]);
-                speelveld[i][j].setBorder(border);
+                panel.add(speelveld[rij][kolom]);
+                speelveld[rij][kolom].setBorder(border);
             }
         }
 
@@ -94,10 +94,10 @@ public class GUI extends JPanel {
                     break;
             }
 
-            for (int i = 0; i < 10; i++) {
-                for (int j = 0; j < 10; j++) {
-                    speelveld[i][j].setBorder(border);
-                    panel.add(speelveld[i][j]);
+            for (int rij = 0; rij < 10; rij++) {
+                for (int kolom = 0; kolom < 10; kolom++) {
+                    speelveld[rij][kolom].setBorder(border);
+                    panel.add(speelveld[rij][kolom]);
                 }
             }
             frame.repaint();

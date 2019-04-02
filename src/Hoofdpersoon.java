@@ -38,11 +38,11 @@ public class Hoofdpersoon extends JComponent {
     public static int[] getHoofdpersoonLocation(){
         JComponent[][] speelveld = GUI.getSpeelveld();
         int[] temp = new int[2];
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                if (speelveld[i][j] instanceof Hoofdpersoon) {
-                    temp[0] = i;
-                    temp[1] = j;
+        for (int rij = 0; rij < 10; rij++) {
+            for (int kolom = 0; kolom < 10; kolom++) {
+                if (speelveld[rij][kolom] instanceof Hoofdpersoon) {
+                    temp[0] = rij;
+                    temp[1] = kolom;
                     return temp;
                 }
             }
