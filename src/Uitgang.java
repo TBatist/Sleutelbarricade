@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Uitgang extends JComponent {
-    private static int levelCompleted = 1;
+    private static int levelCompleted = 2;
 
     public static void setLevelCompleted(){
         levelCompleted++;
