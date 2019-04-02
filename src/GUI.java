@@ -13,26 +13,10 @@ public class GUI extends JPanel {
     private static Border border;
     public static JFrame frame;
     private static Hoofdpersoon hoofdPersoon = new Hoofdpersoon();
-
-
     private static JComponent[][] speelveld = new JComponent[10][10];
 
     public static JComponent[][] getSpeelveld() {
         return speelveld;
-    }
-
-    public static int[] getHoofdpersoonLocation(){
-        int[] temp = new int[2];
-        for (i = 0; i < 10; i++) {
-            for (j = 0; j < 10; j++) {
-                if (speelveld[i][j] instanceof Hoofdpersoon) {
-                    temp[0] = i;
-                    temp[1] = j;
-                    return temp;
-                }
-            }
-        }
-        return null;
     }
 
     public static Hoofdpersoon getHoofdPersoon(){
@@ -43,7 +27,6 @@ public class GUI extends JPanel {
         GUI game = new GUI();
         game.startProgram();
     }
-
 
     public void startProgram() {
         border = BorderFactory.createLineBorder(Color.black);
@@ -87,16 +70,12 @@ public class GUI extends JPanel {
     public class addKeyListener implements KeyListener{
 
         @Override
-        public void keyTyped(KeyEvent e) {
-
-        }
+        public void keyTyped(KeyEvent e) {}
 
         @Override
         public void keyPressed(KeyEvent e) {
             int keyCode = e.getKeyCode();
-
             panel.removeAll();
-
             JComponent surrounding;
             switch(keyCode) {
                 case KeyEvent.VK_RIGHT:
@@ -128,8 +107,6 @@ public class GUI extends JPanel {
         }
 
         @Override
-        public void keyReleased(KeyEvent e) {
-
-        }
+        public void keyReleased(KeyEvent e) {}
     }
 }
