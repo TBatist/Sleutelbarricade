@@ -4,10 +4,16 @@ import javax.swing.*;
 
 import static org.junit.Assert.*;
 
+/**
+ * Deze tests kijken of de Hoofdpersoon een Rasp op kan pakken. Daarna wordt getest of de waarde van de Rasp die de Hoofdpersoon
+ * opgepakt zou moeten hebben hetzelde is als de waarde van de Rasp. Dit wordt getest door eerst een speelveld te maken.
+ * Daarna worden er een Hoofdpersoon en een Rasp met een bepaalde waarde in gezet. Dan wordt de Hoofdpersoon de gewenste richting
+ * op verplaatst, en daarna wordt er getest of de waarde van de Rasp die de Hoofdpersoon heeft hetzelfde is als de waarde van de
+ * Rasp die van te voren in het speelveld is geplaatst.
+ */
 public class TestRasp {
     Hoofdpersoon hoofdpersoon = new Hoofdpersoon();
     JComponent before [][] = new JComponent[10][10];
-    JComponent after [][] = new JComponent[10][10];
     int raspWaarde = 100;
 
     @Test

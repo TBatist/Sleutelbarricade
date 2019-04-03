@@ -4,6 +4,14 @@ import javax.swing.*;
 
 import static org.junit.Assert.*;
 
+/**
+ * Deze tests zijn om te test of de Hoofdpersoon een bepaalde Rasp oppakt, en vervolgens of de Hoofdpersoon zowel wel als niet
+ * door de naastgelegen Kaas met dezelfde of een andere waarde heen gaat.
+ * Eerst wordt er een speelveld gemaakt met een Hoofdpersoon, een Rasp met een bepaalde waarde, en een Kaas met dezelfe waarde
+ * de Rasp. Daarna wordt de Hoofdpersoon naar de gewenste richting verplaatst. In de eerste vier tests wordt getest of de Rasp en
+ * de Kaas zijn verdwenen en de Hoofdpersoon op de plek van de Kaas staat. In de laatste vier wordt getest of de Rasp is verdwenen,
+ * de Hoofdpersoon op de plaatst van de Rasp staat en de Kaas op dezelde plek staat.
+ */
 public class TestKaas {
     Hoofdpersoon hoofdpersoon = new Hoofdpersoon();
     JComponent before [][] = new JComponent[10][10];

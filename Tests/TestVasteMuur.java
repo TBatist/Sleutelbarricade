@@ -4,6 +4,12 @@ import javax.swing.*;
 
 import static org.junit.Assert.assertTrue;
 
+/**
+ * Deze tests kijken of de Hoofdpersoon niet verplaatst wordt wanneer het naast een VasteMuur staat.
+ * Daarvoor wordt eerst een speelveld gemaakt met daarin een Hoofdpersoon en een VasteMuur op de plek waar de Hoofdpersoon heen wilt.
+ * Dan wordt geprobeert de Hoofdpersoon naar de gewenste richting te verplaatsen. Omdat dat niet zou moeten, wordt het uiteindelijke
+ * speelveld vergeleken met het speelveld wat ervoor gemaakt was.
+ */
 public class TestVasteMuur {
     Hoofdpersoon hoofdpersoon = new Hoofdpersoon();
     JComponent before [][] = new JComponent[10][10];

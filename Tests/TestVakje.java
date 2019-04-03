@@ -4,6 +4,12 @@ import javax.swing.*;
 
 import static org.junit.Assert.assertTrue;
 
+/**
+ * Deze tests kijken of de Hoofdpersoon verplaatst wordt wanneer het naast een leeg Vakje staat.
+ * Daarvoor wordt eerst een speelveld gemaakt. Daarin wordt een Hoofdpersoon geplaatst. Het speelveld wordt verder gevuld met Vakjes.
+ * Vervolgens wordt geprobeert de Hoofdpersoon in de gewenste richting te verplaatsen. Dan wordt getest of de Hoofdpersoon inderdaad
+ * verplaatst is door het te vergelijken met het gewenste speelveld.
+ */
 public class TestVakje {
     Hoofdpersoon hoofdpersoon = new Hoofdpersoon();
     JComponent before [][] = new JComponent[10][10];

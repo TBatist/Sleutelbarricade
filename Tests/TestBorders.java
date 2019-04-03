@@ -6,6 +6,12 @@ import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
+/**
+ * Deze tests zijn om te testen of de Hoofdpersoon zich niet verplaatst en er geen exceptions komen wanneer de Hoofdpersoon
+ * naast een border staat en in de richting ervan wil bewegen.
+ * De test maakt daarvoor eerst een speelveld met een Hoofdpersoon en probeert daarna de Hoofdpersoon te verplaatsen.
+ * Daarna wordt getest of dit speelveld hetzelfde is als wanneer de Hoofdpersoon blijft staan.
+ */
 public class TestBorders {
     Hoofdpersoon hoofdpersoon = new Hoofdpersoon();
     JComponent[][] before = new JComponent[10][10];
