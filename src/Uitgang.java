@@ -26,7 +26,7 @@ public class Uitgang extends JComponent {
         return levelCompleted;
     }
 
-    public static void restartLevel(int levelCompleted){
+    public static void restartLevel(){
         Game.frame.dispose();
         Game level = new Game();
         level.startProgram();

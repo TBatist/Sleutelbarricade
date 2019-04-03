@@ -101,7 +101,7 @@ public class Game extends JPanel {
                     direction = 'd';
                     break;
                 case KeyEvent.VK_R:
-                    Uitgang.restartLevel(Uitgang.getLevelCompleted());
+                    Uitgang.restartLevel();
                     break;
             }
             Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding(direction), direction);
@@ -124,7 +124,7 @@ public class Game extends JPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            Uitgang.restartLevel(Uitgang.getLevelCompleted());
+            Uitgang.restartLevel();
         }
     }
 }
