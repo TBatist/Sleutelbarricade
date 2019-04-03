@@ -14,8 +14,8 @@ public class TestRasp {
     public void moveHoofdpersoonRightRasp(){
         before[0][0] = hoofdpersoon;
         before[0][1] = new Rasp(raspWaarde);
-        GUI.setSpeelveld(before);
-        GUI.setHoofdPersoon(hoofdpersoon);
+        Game.setSpeelveld(before);
+        Game.setHoofdPersoon(hoofdpersoon);
         Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('r'), 'r');
         assertEquals("De waarde is niet gelijk aan de waarde van de kaas", hoofdpersoon.getRaspWaarde(), raspWaarde);
     }
@@ -24,8 +24,8 @@ public class TestRasp {
     public void moveHoofdpersoonLeftRasp(){
         before[0][1] = hoofdpersoon;
         before[0][0] = new Rasp(raspWaarde);
-        GUI.setSpeelveld(before);
-        GUI.setHoofdPersoon(hoofdpersoon);
+        Game.setSpeelveld(before);
+        Game.setHoofdPersoon(hoofdpersoon);
         Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('l'), 'l');
         assertEquals("De waarde is niet gelijk aan de waarde van de kaas", hoofdpersoon.getRaspWaarde(), raspWaarde);
     }
@@ -34,8 +34,8 @@ public class TestRasp {
     public void moveHoofdpersoonUpRasp(){
         before[1][0] = hoofdpersoon;
         before[0][0] = new Rasp(raspWaarde);
-        GUI.setSpeelveld(before);
-        GUI.setHoofdPersoon(hoofdpersoon);
+        Game.setSpeelveld(before);
+        Game.setHoofdPersoon(hoofdpersoon);
         Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('u'), 'u');
         assertEquals("De waarde is niet gelijk aan de waarde van de kaas", hoofdpersoon.getRaspWaarde(), raspWaarde);
     }
@@ -44,8 +44,8 @@ public class TestRasp {
     public void moveHoofdpersoonDownRasp(){
         before[0][0] = hoofdpersoon;
         before[1][0] = new Rasp(raspWaarde);
-        GUI.setSpeelveld(before);
-        GUI.setHoofdPersoon(hoofdpersoon);
+        Game.setSpeelveld(before);
+        Game.setHoofdPersoon(hoofdpersoon);
         Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('d'), 'd');
         assertEquals("De waarde is niet gelijk aan de waarde van de kaas", hoofdpersoon.getRaspWaarde(), raspWaarde);
     }

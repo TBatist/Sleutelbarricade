@@ -65,19 +65,19 @@ public class Levels extends JPanel {
     }
 
     public static JComponent[][] level4(){
-        JComponent [][] speelveld = GUI.getSpeelveld();
+        JComponent [][] speelveld = Game.getSpeelveld();
         //Maak level hier
         return speelveld;
     }
 
     public static JComponent[][] level5(){
-        JComponent [][] speelveld = GUI.getSpeelveld();
+        JComponent [][] speelveld = Game.getSpeelveld();
         //Maak level hier
         return speelveld;
     }
 
     public static JComponent[][] generateLevel(double[][] temp) {
-        JComponent [][] speelveld = GUI.getSpeelveld();
+        JComponent [][] speelveld = Game.getSpeelveld();
         for (rij = 0; rij < 10; rij++) {
             for (kolom = 0; kolom < 10; kolom++) {
                 if (temp[rij][kolom] ==0) {
@@ -109,7 +109,7 @@ public class Levels extends JPanel {
                     }
                 }
                 if (temp[rij][kolom] == 4){
-                    speelveld[rij][kolom] = GUI.getHoofdPersoon();
+                    speelveld[rij][kolom] = Game.getHoofdPersoon();
                 }
                 if (temp[rij][kolom] == 5) {
                     speelveld[rij][kolom] = new Uitgang();

@@ -14,8 +14,8 @@ public class TestVasteMuur {
         before[0][1] = new VasteMuur();
         before = Levels.fillSpeelveld(before);
         JComponent after [][] = before;
-        GUI.setSpeelveld(before);
-        GUI.setHoofdPersoon(hoofdpersoon);
+        Game.setSpeelveld(before);
+        Game.setHoofdPersoon(hoofdpersoon);
         Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('r'),'r');
         boolean result = true;
         for (int i = 0; i < before.length; i++) {
@@ -32,8 +32,8 @@ public class TestVasteMuur {
         before[0][0] = new VasteMuur();
         before = Levels.fillSpeelveld(before);
         JComponent after [][] = before;
-        GUI.setSpeelveld(before);
-        GUI.setHoofdPersoon(hoofdpersoon);
+        Game.setSpeelveld(before);
+        Game.setHoofdPersoon(hoofdpersoon);
         Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('l'),'l');
         boolean result = true;
         for (int i = 0; i < before.length; i++) {
@@ -50,8 +50,8 @@ public class TestVasteMuur {
         before[0][0] = new VasteMuur();
         before = Levels.fillSpeelveld(before);
         JComponent after [][] = before;
-        GUI.setSpeelveld(before);
-        GUI.setHoofdPersoon(hoofdpersoon);
+        Game.setSpeelveld(before);
+        Game.setHoofdPersoon(hoofdpersoon);
         Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('u'),'u');
         boolean result = true;
         for (int i = 0; i < before.length; i++) {
@@ -68,8 +68,8 @@ public class TestVasteMuur {
         before[1][0] = new VasteMuur();
         before = Levels.fillSpeelveld(before);
         JComponent after [][] = before;
-        GUI.setSpeelveld(before);
-        GUI.setHoofdPersoon(hoofdpersoon);
+        Game.setSpeelveld(before);
+        Game.setHoofdPersoon(hoofdpersoon);
         Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('d'),'d');
         boolean result = true;
         for (int i = 0; i < before.length; i++) {

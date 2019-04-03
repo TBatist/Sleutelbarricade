@@ -35,7 +35,7 @@ public class Hoofdpersoon extends JComponent {
     }
 
     public static int[] getHoofdpersoonLocation(){
-        JComponent[][] speelveld = GUI.getSpeelveld();
+        JComponent[][] speelveld = Game.getSpeelveld();
         int[] coordinaten = new int[2];
         for (int rij = 0; rij < 10; rij++) {
             for (int kolom = 0; kolom < 10; kolom++) {
@@ -50,7 +50,7 @@ public class Hoofdpersoon extends JComponent {
     }
 
     public static JComponent surrounding(char direction){
-        JComponent[][] speelveld = GUI.getSpeelveld();
+        JComponent[][] speelveld = Game.getSpeelveld();
         int[] coordinaten = getHoofdpersoonLocation();
         int y = coordinaten[0];
         int x = coordinaten[1];
@@ -83,8 +83,8 @@ public class Hoofdpersoon extends JComponent {
         int[] coordinaten = getHoofdpersoonLocation();
         int y = coordinaten[0];
         int x = coordinaten[1];
-        Hoofdpersoon hoofdPersoon = GUI.getHoofdPersoon();
-        JComponent[][] speelveld = GUI.getSpeelveld();
+        Hoofdpersoon hoofdPersoon = Game.getHoofdPersoon();
+        JComponent[][] speelveld = Game.getSpeelveld();
         if(!(surrounding instanceof VasteMuur || surrounding == null)) {
             if (surrounding instanceof Rasp) {
                 hoofdPersoon.setRaspWaarde((Rasp) surrounding);
@@ -111,7 +111,7 @@ public class Hoofdpersoon extends JComponent {
                     }
                 }
                 if (surrounding instanceof Uitgang) {
-                    Uitgang.restartLevel();
+                    Uitgang.restartLevel(Uitgang.getLevelCompleted() + 1);
                 }
             }
         }

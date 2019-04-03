@@ -6,8 +6,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class GUI extends JPanel {
-    private static JPanel panel;
+public class Game extends JPanel {
+    private static JPanel grid;
+    private static JPanel buttonGroup;
     private static Border border;
     public static JFrame frame;
     private static Hoofdpersoon hoofdPersoon = new Hoofdpersoon();
@@ -30,17 +31,18 @@ public class GUI extends JPanel {
     }
 
     public static void main(String[] args) {
-        GUI game = new GUI();
+        Game game = new Game();
         game.startProgram();
     }
 
     public void startProgram() {
         border = BorderFactory.createLineBorder(Color.black);
-        panel = new JPanel();
+        grid = new JPanel();
+        buttonGroup = new JPanel();
         frame = new JFrame();
-        panel.setLayout(new GridLayout(10, 10));
-        KeyListener listener = new addKeyListener();
-        frame.addKeyListener(listener);
+        grid.setLayout(new GridLayout(10, 10));
+        KeyListener keyListener = new addKeyListener();
+        frame.addKeyListener(keyListener);
 
         frame.setTitle("Sleutelbarricade");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,19 +61,24 @@ public class GUI extends JPanel {
 
         for (int rij = 0; rij < 10; rij++) {
             for (int kolom = 0; kolom < 10; kolom++) {
-                panel.add(speelveld[rij][kolom]);
+                grid.add(speelveld[rij][kolom]);
                 speelveld[rij][kolom].setBorder(border);
             }
         }
 
-        frame.add(panel, BorderLayout.CENTER);
+        JButton reset = new JButton("Reset");
+        //ActionListener actionListener = new addActionListener();
+        //reset.addActionListener(actionListener);
+        buttonGroup.add(reset, BorderLayout.SOUTH);
+
+        frame.add(grid, BorderLayout.CENTER);
+        //frame.add(buttonGroup, BorderLayout.SOUTH);
         frame.setSize(1000, 1000);
 
         frame.setVisible(true);
     }
 
     public class addKeyListener implements KeyListener{
-
         @Override
         public void keyTyped(KeyEvent e) {}
 
@@ -79,7 +86,7 @@ public class GUI extends JPanel {
         public void keyPressed(KeyEvent e) {
             int keyCode = e.getKeyCode();
             char direction = 'w';
-            panel.removeAll();
+            grid.removeAll();
             switch(keyCode) {
                 case KeyEvent.VK_RIGHT:
                     direction = 'r';
@@ -100,7 +107,7 @@ public class GUI extends JPanel {
             for (int rij = 0; rij < 10; rij++) {
                 for (int kolom = 0; kolom < 10; kolom++) {
                     speelveld[rij][kolom].setBorder(border);
-                    panel.add(speelveld[rij][kolom]);
+                    grid.add(speelveld[rij][kolom]);
                 }
             }
             frame.repaint();
@@ -110,4 +117,12 @@ public class GUI extends JPanel {
         @Override
         public void keyReleased(KeyEvent e) {}
     }
+
+    /*public class addActionListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Uitgang.restartLevel(Uitgang.getLevelCompleted());
+        }
+    }*/
 }

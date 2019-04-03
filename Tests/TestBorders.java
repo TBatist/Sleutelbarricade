@@ -14,8 +14,8 @@ public class TestBorders {
     @Test
     public void moveHoofdpersoonRightBorder () {
         before[0][9] = hoofdpersoon;
-        GUI.setSpeelveld(before);
-        GUI.setHoofdPersoon(hoofdpersoon);
+        Game.setSpeelveld(before);
+        Game.setHoofdPersoon(hoofdpersoon);
         Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('r'), 'r');
         after[0][9] = hoofdpersoon;
         boolean result = true;
@@ -30,8 +30,8 @@ public class TestBorders {
     @Test
     public void moveHoofdpersoonLeftBorder () {
         before[0][0] = hoofdpersoon;
-        GUI.setSpeelveld(before);
-        GUI.setHoofdPersoon(hoofdpersoon);
+        Game.setSpeelveld(before);
+        Game.setHoofdPersoon(hoofdpersoon);
         Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('l'), 'l');
         after[0][0] = hoofdpersoon;
         boolean result = true;
@@ -46,8 +46,8 @@ public class TestBorders {
     @Test
     public void moveHoofdpersoonUpBorder () {
         before[0][0] = hoofdpersoon;
-        GUI.setSpeelveld(before);
-        GUI.setHoofdPersoon(hoofdpersoon);
+        Game.setSpeelveld(before);
+        Game.setHoofdPersoon(hoofdpersoon);
         Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('u'), 'u');
         after[0][0] = hoofdpersoon;
         boolean result = true;
@@ -62,8 +62,8 @@ public class TestBorders {
     @Test
     public void moveHoofdpersoonDownBorder () {
         before[9][0] = hoofdpersoon;
-        GUI.setSpeelveld(before);
-        GUI.setHoofdPersoon(hoofdpersoon);
+        Game.setSpeelveld(before);
+        Game.setHoofdPersoon(hoofdpersoon);
         Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('d'), 'd');
         after[9][0] = hoofdpersoon;
         boolean result = true;
