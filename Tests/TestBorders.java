@@ -8,11 +8,11 @@ import static org.junit.Assert.*;
 
 public class TestBorders {
     Hoofdpersoon hoofdpersoon = new Hoofdpersoon();
+    JComponent[][] before = new JComponent[10][10];
+    JComponent[][] after = new JComponent[10][10];
 
     @Test
     public void moveHoofdpersoonRightBorder () {
-        JComponent[][] before = new JComponent[10][10];
-        JComponent[][] after = new JComponent[10][10];
         before[0][9] = hoofdpersoon;
         GUI.setSpeelveld(before);
         GUI.setHoofdPersoon(hoofdpersoon);
@@ -29,8 +29,6 @@ public class TestBorders {
 
     @Test
     public void moveHoofdpersoonLeftBorder () {
-        JComponent[][] before = new JComponent[10][10];
-        JComponent[][] after = new JComponent[10][10];
         before[0][0] = hoofdpersoon;
         GUI.setSpeelveld(before);
         GUI.setHoofdPersoon(hoofdpersoon);
@@ -47,8 +45,6 @@ public class TestBorders {
 
     @Test
     public void moveHoofdpersoonUpBorder () {
-        JComponent[][] before = new JComponent[10][10];
-        JComponent[][] after = new JComponent[10][10];
         before[0][0] = hoofdpersoon;
         GUI.setSpeelveld(before);
         GUI.setHoofdPersoon(hoofdpersoon);
@@ -65,8 +61,6 @@ public class TestBorders {
 
     @Test
     public void moveHoofdpersoonDownBorder () {
-        JComponent[][] before = new JComponent[10][10];
-        JComponent[][] after = new JComponent[10][10];
         before[9][0] = hoofdpersoon;
         GUI.setSpeelveld(before);
         GUI.setHoofdPersoon(hoofdpersoon);

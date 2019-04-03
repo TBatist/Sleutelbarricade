@@ -6,11 +6,11 @@ import static org.junit.Assert.assertTrue;
 
 public class TestVakje {
     Hoofdpersoon hoofdpersoon = new Hoofdpersoon();
+    JComponent before [][] = new JComponent[10][10];
+    JComponent after [][] = new JComponent[10][10];
 
     @Test
     public void moveHoofdpersoonRightVakje(){
-        JComponent before [][] = new JComponent[10][10];
-        JComponent after [][] = new JComponent[10][10];
         before[0][0] = hoofdpersoon;
         before = Levels.fillSpeelveld(before);
         after[0][1] = new Hoofdpersoon();
@@ -29,8 +29,6 @@ public class TestVakje {
 
     @Test
     public void moveHoofdpersoonLeftVakje(){
-        JComponent before [][] = new JComponent[10][10];
-        JComponent after [][] = new JComponent[10][10];
         before[0][1] = hoofdpersoon;
         before = Levels.fillSpeelveld(before);
         after[0][0] = new Hoofdpersoon();
@@ -49,8 +47,6 @@ public class TestVakje {
 
     @Test
     public void moveHoofdpersoonUpVakje(){
-        JComponent before [][] = new JComponent[10][10];
-        JComponent after [][] = new JComponent[10][10];
         before[1][0] = hoofdpersoon;
         before = Levels.fillSpeelveld(before);
         after[0][0] = new Hoofdpersoon();
@@ -69,8 +65,6 @@ public class TestVakje {
 
     @Test
     public void moveHoofdpersoonDownVakje(){
-        JComponent before [][] = new JComponent[10][10];
-        JComponent after [][] = new JComponent[10][10];
         before[0][0] = hoofdpersoon;
         before = Levels.fillSpeelveld(before);
         after[1][0] = new Hoofdpersoon();

@@ -6,10 +6,10 @@ import static org.junit.Assert.assertTrue;
 
 public class TestVasteMuur {
     Hoofdpersoon hoofdpersoon = new Hoofdpersoon();
+    JComponent before [][] = new JComponent[10][10];
 
     @Test
     public void moveHoofdpersoonRightMuur(){
-        JComponent before [][] = new JComponent[10][10];
         before[0][0] = hoofdpersoon;
         before[0][1] = new VasteMuur();
         before = Levels.fillSpeelveld(before);
@@ -28,7 +28,6 @@ public class TestVasteMuur {
 
     @Test
     public void moveHoofdpersoonLeftMuur(){
-        JComponent before [][] = new JComponent[10][10];
         before[0][1] = hoofdpersoon;
         before[0][0] = new VasteMuur();
         before = Levels.fillSpeelveld(before);
@@ -47,7 +46,6 @@ public class TestVasteMuur {
 
     @Test
     public void moveHoofdpersoonUpMuur(){
-        JComponent before [][] = new JComponent[10][10];
         before[1][0] = hoofdpersoon;
         before[0][0] = new VasteMuur();
         before = Levels.fillSpeelveld(before);
@@ -66,7 +64,6 @@ public class TestVasteMuur {
 
     @Test
     public void moveHoofdpersoonDownMuur(){
-        JComponent before [][] = new JComponent[10][10];
         before[0][0] = hoofdpersoon;
         before[1][0] = new VasteMuur();
         before = Levels.fillSpeelveld(before);
