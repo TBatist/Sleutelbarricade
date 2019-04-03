@@ -36,13 +36,13 @@ public class Hoofdpersoon extends JComponent {
 
     public static int[] getHoofdpersoonLocation(){
         JComponent[][] speelveld = GUI.getSpeelveld();
-        int[] temp = new int[2];
+        int[] coordinaten = new int[2];
         for (int rij = 0; rij < 10; rij++) {
             for (int kolom = 0; kolom < 10; kolom++) {
                 if (speelveld[rij][kolom] instanceof Hoofdpersoon) {
-                    temp[0] = rij;
-                    temp[1] = kolom;
-                    return temp;
+                    coordinaten[0] = rij;
+                    coordinaten[1] = kolom;
+                    return coordinaten;
                 }
             }
         }
@@ -51,26 +51,28 @@ public class Hoofdpersoon extends JComponent {
 
     public static JComponent surrounding(char direction){
         JComponent[][] speelveld = GUI.getSpeelveld();
-        int[] temp = getHoofdpersoonLocation();
+        int[] coordinaten = getHoofdpersoonLocation();
+        int y = coordinaten[0];
+        int x = coordinaten[1];
         switch (direction){
             case 'r':
-                if(temp[1] + 1 <= 9) {
-                    return speelveld[temp[0]][temp[1] + 1];
+                if(x + 1 <= 9) {
+                    return speelveld[y][x + 1];
                 }
                 break;
             case 'l':
-                if(temp[1] - 1 >= 0) {
-                    return speelveld[temp[0]][temp[1] - 1];
+                if(x - 1 >= 0) {
+                    return speelveld[y][x - 1];
                 }
                 break;
             case 'u':
-                if(temp[0] - 1 >= 0){
-                    return speelveld[temp[0] - 1][temp[1]];
+                if(y - 1 >= 0){
+                    return speelveld[y - 1][x];
                 }
                 break;
             case 'd':
-                if(temp[0] + 1 <= 9) {
-                    return speelveld[temp[0] + 1][temp[1]];
+                if(y + 1 <= 9) {
+                    return speelveld[y + 1][x];
                 }
                 break;
         }
@@ -78,7 +80,9 @@ public class Hoofdpersoon extends JComponent {
     }
 
     public static void moveHoofdpersoon(JComponent surrounding, char direction) {
-        int[] temp = getHoofdpersoonLocation();
+        int[] coordinaten = getHoofdpersoonLocation();
+        int y = coordinaten[0];
+        int x = coordinaten[1];
         Hoofdpersoon hoofdPersoon = GUI.getHoofdPersoon();
         JComponent[][] speelveld = GUI.getSpeelveld();
         if(!(surrounding instanceof VasteMuur || surrounding == null)) {
@@ -88,19 +92,19 @@ public class Hoofdpersoon extends JComponent {
             if (!(surrounding instanceof Kaas) || (Hoofdpersoon.checkWaarde((Kaas) surrounding))) {
                 switch (direction) {
                     case 'r':
-                        speelveld[temp[0]][temp[1] + 1] = hoofdPersoon;
+                        speelveld[y][x + 1] = hoofdPersoon;
                         break;
                     case 'l':
-                        speelveld[temp[0]][temp[1] - 1] = hoofdPersoon;
+                        speelveld[y][x - 1] = hoofdPersoon;
                         break;
                     case 'u':
-                        speelveld[temp[0] - 1][temp[1]] = hoofdPersoon;
+                        speelveld[y - 1][x] = hoofdPersoon;
                         break;
                     case 'd':
-                        speelveld[temp[0] + 1][temp[1]] = hoofdPersoon;
+                        speelveld[y + 1][x] = hoofdPersoon;
                         break;
                 }
-                speelveld[temp[0]][temp[1]] = new Vakje();
+                speelveld[y][x] = new Vakje();
                 if (surrounding instanceof Kaas) {
                     if (Hoofdpersoon.checkWaarde((Kaas) surrounding)) {
                         raspWaarde = 0;
