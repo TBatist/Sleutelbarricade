@@ -99,7 +99,9 @@ public class Game extends JPanel {
                     break;
                 case KeyEvent.VK_DOWN:
                     direction = 'd';
-
+                    break;
+                case KeyEvent.VK_R:
+                    Uitgang.restartLevel(Uitgang.getLevelCompleted());
                     break;
             }
             Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding(direction), direction);

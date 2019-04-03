@@ -18,8 +18,8 @@ public class Uitgang extends JComponent {
         }
     }
 
-    public static void setLevelCompleted(){
-        levelCompleted++;
+    public static void setLevelCompleted(int nieuwLevelCompleted){
+        levelCompleted = nieuwLevelCompleted;
     }
 
     public static int getLevelCompleted(){

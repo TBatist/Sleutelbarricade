@@ -111,7 +111,8 @@ public class Hoofdpersoon extends JComponent {
                     }
                 }
                 if (surrounding instanceof Uitgang) {
-                    Uitgang.restartLevel(Uitgang.getLevelCompleted() + 1);
+                    Uitgang.setLevelCompleted(Uitgang.getLevelCompleted() + 1);
+                    Uitgang.restartLevel(Uitgang.getLevelCompleted());
                 }
             }
         }
