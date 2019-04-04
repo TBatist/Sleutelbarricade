@@ -85,9 +85,16 @@ public class Game extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         if(Uitgang.getLevelCompleted() == -1){
-            instructions.add(regel1, BorderLayout.NORTH);
-            instructions.add(regel2, BorderLayout.CENTER);
-            instructions.add(regel3, BorderLayout.SOUTH);
+            instructions.setLayout(new GridLayout(3,1));
+            regel1.setFont(new Font("Serif", Font.BOLD, 20));
+            regel2.setFont(new Font("Serif", Font.BOLD, 20));
+            regel3.setFont(new Font("Serif", Font.BOLD, 20));
+            regel1.setHorizontalAlignment(JLabel.CENTER);
+            regel2.setHorizontalAlignment(JLabel.CENTER);
+            regel3.setHorizontalAlignment(JLabel.CENTER);
+            instructions.add(regel1);
+            instructions.add(regel2);
+            instructions.add(regel3);
             button.add(startGame);
         }else if(Uitgang.getLevelCompleted() == 0) {
             speelveld = Levels.level1();
