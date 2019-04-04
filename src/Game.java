@@ -9,6 +9,11 @@ import java.awt.event.KeyListener;
 public class Game extends JPanel {
     private static JPanel grid;
     private static JPanel buttonGroup;
+    private static JPanel start;
+    private static JLabel regel1 = new JLabel("Het doel van dit spel is om Patrick door het doolhof naar de uitgang te leiden.");
+    private static JLabel regel2 = new JLabel("Patrick kan niet zelf door de kazen heen. Hiervoor heeft hij een rasp nodig met dezelde waarde als de kaas.");
+    private static JLabel regel3 = new JLabel("Hij kan elke rasp maar 1x gebruiken. Wanneer hij een andere rasp oppakt, is hij de rasp die hij had kwijt.");
+    private static JButton startGame;
     private static Border border;
     public static JFrame frame;
     private static Hoofdpersoon hoofdPersoon = new Hoofdpersoon();
@@ -62,6 +67,10 @@ public class Game extends JPanel {
         border = BorderFactory.createLineBorder(Color.black);
         grid = new JPanel();
         buttonGroup = new JPanel();
+        start = new JPanel();
+        startGame = new JButton("Start spel");
+        ActionListener actionListener = new addActionListener();
+        startGame.addActionListener(actionListener);
         frame = new JFrame();
         grid.setLayout(new GridLayout(10, 10));
         KeyListener keyListener = new addKeyListener();
@@ -70,7 +79,12 @@ public class Game extends JPanel {
         frame.setTitle("Sleutelbarricade");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        if(Uitgang.getLevelCompleted() == 0) {
+        if(Uitgang.getLevelCompleted() == -1){
+            start.add(regel1, BorderLayout.CENTER);
+            start.add(regel2, BorderLayout.CENTER);
+            start.add(regel3, BorderLayout.CENTER);
+            start.add(startGame, BorderLayout.SOUTH);
+        }else if(Uitgang.getLevelCompleted() == 0) {
             speelveld = Levels.level1();
         }else if(Uitgang.getLevelCompleted() == 1){
             speelveld = Levels.level2();
@@ -82,20 +96,45 @@ public class Game extends JPanel {
             speelveld = Levels.level5();
         }
 
-        for (int rij = 0; rij < 10; rij++) {
-            for (int kolom = 0; kolom < 10; kolom++) {
-                grid.add(speelveld[rij][kolom]);
-                speelveld[rij][kolom].setBorder(border);
+
+        if(Uitgang.getLevelCompleted() >= 0) {
+            for (int rij = 0; rij < 10; rij++) {
+                for (int kolom = 0; kolom < 10; kolom++) {
+                    grid.add(speelveld[rij][kolom]);
+                    speelveld[rij][kolom].setBorder(border);
+                }
             }
         }
 
-        JButton reset = new JButton("Reset");
-        ActionListener actionListener = new addActionListener();
-        reset.addActionListener(actionListener);
-        buttonGroup.add(reset, BorderLayout.SOUTH);
+        JLabel reset = new JLabel("R = Reset level  |  ");
+        reset.setFont(new Font("Serif", Font.BOLD, 15));
 
-        frame.add(grid, BorderLayout.CENTER);
-        //frame.add(buttonGroup, BorderLayout.SOUTH);
+        JLabel up = new JLabel("Moving up = ↑  |  ");
+        up.setFont(new Font("Serif", Font.BOLD, 15));
+
+        JLabel down = new JLabel("Moving down = ↓  |  ");
+        down.setFont(new Font("Serif", Font.BOLD, 15));
+
+        JLabel left = new JLabel("Move left = ←  |  ");
+        left.setFont(new Font("Serif", Font.BOLD, 15));
+
+        JLabel right = new JLabel("Move right = →");
+        right.setFont(new Font("Serif", Font.BOLD, 15));
+
+        buttonGroup.add(reset, BorderLayout.SOUTH);
+        buttonGroup.add(up, BorderLayout.SOUTH);
+        buttonGroup.add(down, BorderLayout.SOUTH);
+        buttonGroup.add(left, BorderLayout.SOUTH);
+        buttonGroup.add(right, BorderLayout.SOUTH);
+
+        if(Uitgang.getLevelCompleted() < 0){
+            frame.add(start);
+            Uitgang.setLevelCompleted(0);
+        }
+        else {
+            frame.add(grid, BorderLayout.CENTER);
+            frame.add(buttonGroup, BorderLayout.SOUTH);
+        }
         frame.setSize(1000, 1000);
 
         frame.setVisible(true);
@@ -146,7 +185,7 @@ public class Game extends JPanel {
         public void keyReleased(KeyEvent e) {}
     }
 
-    public class addActionListener implements ActionListener{
+    private class addActionListener implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {

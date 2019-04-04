@@ -45,3 +45,7 @@ public class Rasp extends JComponent {
         g.drawString(waardeString, 5, 15);
     }
 }
+
+/** Het plaatje voor onze sleutel komt hier van daan:
+ * http://cliparts101.com/free_clipart/92687/Cheese_Grater
+ */
