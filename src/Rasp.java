@@ -6,16 +6,16 @@ import java.io.IOException;
 import java.net.URL;
 
 public class Rasp extends JComponent {
-    private int waarde;
+    private int raspwaarde;
     private String waardeString;
     private BufferedImage imageRasp;
 
     /**
      * dit initialiseerd de waarde van de rasp en het plaatje
-     * @param waarde
+     * @param raspwaarde
      */
-    public Rasp(int waarde){
-        this.waarde = waarde;
+    public Rasp(int raspwaarde){
+        this.raspwaarde = raspwaarde;
         URL resource = getClass().getResource("kaasRasp.png");
         try {
             imageRasp = ImageIO.read(resource);
@@ -28,8 +28,8 @@ public class Rasp extends JComponent {
      * getter voor de raspwaarde
      * @return waarde
      */
-    public int getWaarde(){
-        return waarde;
+    public int getRaspWaarde(){
+        return raspwaarde;
     }
 
     /**
@@ -39,8 +39,8 @@ public class Rasp extends JComponent {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(imageRasp, 15, 10, 75,85,this);
-        getWaarde();
-        waardeString = Integer.toString(waarde);
+        getRaspWaarde();
+        waardeString = Integer.toString(raspwaarde);
         g.setColor(Color.BLACK);
         g.drawString(waardeString, 5, 15);
     }

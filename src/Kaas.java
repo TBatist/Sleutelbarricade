@@ -12,10 +12,10 @@ public class Kaas extends JComponent {
 
     /**
      * Dit initialiseerd de waarde van de kaas en het plaatje
-     * @param waarde
+     * @param kaaswaarde
      */
-    public Kaas(int waarde){
-        this.kaaswaarde = waarde;
+    public Kaas(int kaaswaarde){
+        this.kaaswaarde = kaaswaarde;
 
         URL resource = getClass().getResource("blokKaas.png");
         try {
