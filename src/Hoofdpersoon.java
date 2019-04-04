@@ -39,7 +39,7 @@ public class Hoofdpersoon extends JComponent {
      * @param rasp
      */
     public void setRaspWaarde(Rasp rasp){
-        this.raspWaarde = rasp.getWaarde();
+        this.raspWaarde = rasp.getRaspWaarde();
     }
 
     /**
