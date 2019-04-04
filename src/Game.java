@@ -1,3 +1,4 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -5,11 +6,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class Game extends JPanel {
     private static JPanel grid;
     private static JPanel buttonGroup;
-    private static JPanel start;
+    private static JPanel instructions = new JPanel();
+    private static JPanel button = new JPanel();
     private static JLabel regel1 = new JLabel("Het doel van dit spel is om Patrick door het doolhof naar de uitgang te leiden.");
     private static JLabel regel2 = new JLabel("Patrick kan niet zelf door de kazen heen. Hiervoor heeft hij een rasp nodig met dezelde waarde als de kaas.");
     private static JLabel regel3 = new JLabel("Hij kan elke rasp maar 1x gebruiken. Wanneer hij een andere rasp oppakt, is hij de rasp die hij had kwijt.");
@@ -67,7 +73,6 @@ public class Game extends JPanel {
         border = BorderFactory.createLineBorder(Color.black);
         grid = new JPanel();
         buttonGroup = new JPanel();
-        start = new JPanel();
         startGame = new JButton("Start spel");
         ActionListener actionListener = new addActionListener();
         startGame.addActionListener(actionListener);
@@ -80,10 +85,10 @@ public class Game extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         if(Uitgang.getLevelCompleted() == -1){
-            start.add(regel1, BorderLayout.CENTER);
-            start.add(regel2, BorderLayout.CENTER);
-            start.add(regel3, BorderLayout.CENTER);
-            start.add(startGame, BorderLayout.SOUTH);
+            instructions.add(regel1, BorderLayout.NORTH);
+            instructions.add(regel2, BorderLayout.CENTER);
+            instructions.add(regel3, BorderLayout.SOUTH);
+            button.add(startGame);
         }else if(Uitgang.getLevelCompleted() == 0) {
             speelveld = Levels.level1();
         }else if(Uitgang.getLevelCompleted() == 1){
@@ -95,7 +100,6 @@ public class Game extends JPanel {
         }else{
             speelveld = Levels.level5();
         }
-
 
         if(Uitgang.getLevelCompleted() >= 0) {
             for (int rij = 0; rij < 10; rij++) {
@@ -128,7 +132,12 @@ public class Game extends JPanel {
         buttonGroup.add(right, BorderLayout.SOUTH);
 
         if(Uitgang.getLevelCompleted() < 0){
-            frame.add(start);
+            frame.add(instructions, BorderLayout.NORTH);
+            URL url = getClass().getResource("patrickGif.gif");
+            ImageIcon imageIcon = new ImageIcon(url);
+            JLabel gif = new JLabel(imageIcon);
+            frame.add(gif);
+            frame.add(button, BorderLayout.SOUTH);
             Uitgang.setLevelCompleted(0);
         }
         else {
