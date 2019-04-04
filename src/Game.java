@@ -1,4 +1,8 @@
 import javax.imageio.ImageIO;
+import sun.audio.AudioData;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+import sun.audio.ContinuousAudioDataStream;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -7,7 +11,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -80,7 +87,7 @@ public class Game extends JPanel {
         grid.setLayout(new GridLayout(10, 10));
         KeyListener keyListener = new addKeyListener();
         frame.addKeyListener(keyListener);
-
+        playMusic("src\\\\Age-of-War-_Online-Game_-Theme.wav");
         frame.setTitle("Sleutelbarricade");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -156,6 +163,18 @@ public class Game extends JPanel {
         frame.setVisible(true);
     }
 
+
+    public static void playMusic(String filepath) {
+        InputStream music;
+        try {
+            music = new FileInputStream(new File(filepath));
+            AudioStream audios= new AudioStream(music);
+            AudioPlayer.player.start(audios);
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error");
+        }
+    }
     /**
      * Dit is de class die ervoor zorgt dat er iets gebeurt als je op een pijltje drukt
      */
