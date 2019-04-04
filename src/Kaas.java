@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.URL;
 
 public class Kaas extends JComponent {
-    private int waarde;
+    private int kaaswaarde;
     private String waardeString;
     private BufferedImage imageKaas;
 
@@ -15,7 +15,7 @@ public class Kaas extends JComponent {
      * @param waarde
      */
     public Kaas(int waarde){
-        this.waarde = waarde;
+        this.kaaswaarde = waarde;
 
         URL resource = getClass().getResource("blokKaas.png");
         try {
@@ -30,8 +30,8 @@ public class Kaas extends JComponent {
      * getter van de kaaswaarde
      * @return waarde
      */
-    public int getWaarde(){
-        return waarde;
+    public int getKaasWaarde(){
+        return kaaswaarde;
     }
 
     /**
@@ -42,8 +42,8 @@ public class Kaas extends JComponent {
         super.paintComponent(g);
         g.drawImage(imageKaas, 0, 0, 100,100,this);
         g.setColor(Color.BLACK);
-        getWaarde();
-        waardeString = Integer.toString(waarde);
+        getKaasWaarde();
+        waardeString = Integer.toString(kaaswaarde);
         g.drawString(waardeString,5,15);
     }
 

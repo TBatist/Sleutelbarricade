@@ -28,7 +28,7 @@ public class Hoofdpersoon extends JComponent {
      * @return boolean
      */
     public static boolean checkWaarde(Kaas kaas) {
-        if(raspWaarde == kaas.getWaarde()){
+        if(raspWaarde == kaas.getKaasWaarde()){
             return true;
         }
         return false;
