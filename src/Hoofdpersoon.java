@@ -1,3 +1,4 @@
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -38,8 +39,8 @@ public class Hoofdpersoon extends JComponent {
      * Setter voor raspwaarde
      * @param rasp
      */
-    public void setRaspWaarde(Rasp rasp){
-        this.raspWaarde = rasp.getWaarde();
+    public static void setRaspWaarde(Rasp rasp){
+        raspWaarde = rasp.getWaarde();
     }
 
     /**
