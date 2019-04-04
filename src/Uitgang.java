@@ -37,3 +37,7 @@ public class Uitgang extends JComponent {
         g.drawImage(imageUitgang, 0, 0, 100,100,this);
     }
 }
+
+/** Het plaatje voor onze uitgang komt hier van daan:
+ * http://www.minecraftopia.com/trapdoor.html
+ */
