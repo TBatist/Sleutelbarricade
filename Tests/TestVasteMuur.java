@@ -18,7 +18,7 @@ public class TestVasteMuur {
     public void moveHoofdpersoonRightMuur(){
         before[0][0] = hoofdpersoon;
         before[0][1] = new VasteMuur();
-        before = Levels.fillSpeelveld(before);
+        before = Level.fillSpeelveld(before);
         JComponent after [][] = before;
         Game.setSpeelveld(before);
         Game.setHoofdPersoon(hoofdpersoon);
@@ -36,7 +36,7 @@ public class TestVasteMuur {
     public void moveHoofdpersoonLeftMuur(){
         before[0][1] = hoofdpersoon;
         before[0][0] = new VasteMuur();
-        before = Levels.fillSpeelveld(before);
+        before = Level.fillSpeelveld(before);
         JComponent after [][] = before;
         Game.setSpeelveld(before);
         Game.setHoofdPersoon(hoofdpersoon);
@@ -54,7 +54,7 @@ public class TestVasteMuur {
     public void moveHoofdpersoonUpMuur(){
         before[1][0] = hoofdpersoon;
         before[0][0] = new VasteMuur();
-        before = Levels.fillSpeelveld(before);
+        before = Level.fillSpeelveld(before);
         JComponent after [][] = before;
         Game.setSpeelveld(before);
         Game.setHoofdPersoon(hoofdpersoon);
@@ -72,7 +72,7 @@ public class TestVasteMuur {
     public void moveHoofdpersoonDownMuur(){
         before[0][0] = hoofdpersoon;
         before[1][0] = new VasteMuur();
-        before = Levels.fillSpeelveld(before);
+        before = Level.fillSpeelveld(before);
         JComponent after [][] = before;
         Game.setSpeelveld(before);
         Game.setHoofdPersoon(hoofdpersoon);

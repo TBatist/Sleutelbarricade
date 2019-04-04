@@ -100,15 +100,15 @@ public class Game extends JPanel {
             button.add(startGame);
             playMusic("src\\\\Age-of-War-_Online-Game_-Theme.wav");
         }else if(Uitgang.getLevelCompleted() == 0) {
-            speelveld = Levels.level1();
+            speelveld = Level.level1();
         }else if(Uitgang.getLevelCompleted() == 1){
-            speelveld = Levels.level2();
+            speelveld = Level.level2();
         }else if(Uitgang.getLevelCompleted() == 2){
-            speelveld = Levels.level3();
+            speelveld = Level.level3();
         }else if(Uitgang.getLevelCompleted() == 3){
-            speelveld = Levels.level4();
+            speelveld = Level.level4();
         }else{
-            speelveld = Levels.level5();
+            speelveld = Level.level5();
         }
 
         if(Uitgang.getLevelCompleted() >= 0) {

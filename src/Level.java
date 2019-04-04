@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Levels extends JPanel {
+public class Level extends JPanel {
     private static int rij;
     private static int kolom;
     private static Random intNummer = new Random();
@@ -88,7 +88,7 @@ public class Levels extends JPanel {
         for(int teller = 0; teller < 100; teller++){
             nummer = intNummer.nextInt(4);
             randomList.add(nummer);
-                }
+        }
         double[][] coordinaten = {
                 {4,0,randomList.get(0),randomList.get(10),randomList.get(20),randomList.get(30),randomList.get(40),randomList.get(50),randomList.get(60),randomList.get(70)},
                 {randomList.get(1),randomList.get(11),randomList.get(21),randomList.get(31),randomList.get(41),randomList.get(51),randomList.get(61),randomList.get(71),randomList.get(80),randomList.get(89)},

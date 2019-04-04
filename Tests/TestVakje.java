@@ -18,9 +18,9 @@ public class TestVakje {
     @Test
     public void moveHoofdpersoonRightVakje(){
         before[0][0] = hoofdpersoon;
-        before = Levels.fillSpeelveld(before);
+        before = Level.fillSpeelveld(before);
         after[0][1] = new Hoofdpersoon();
-        after = Levels.fillSpeelveld(after);
+        after = Level.fillSpeelveld(after);
         Game.setSpeelveld(before);
         Game.setHoofdPersoon(hoofdpersoon);
         Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('r'),'r');
@@ -36,9 +36,9 @@ public class TestVakje {
     @Test
     public void moveHoofdpersoonLeftVakje(){
         before[0][1] = hoofdpersoon;
-        before = Levels.fillSpeelveld(before);
+        before = Level.fillSpeelveld(before);
         after[0][0] = new Hoofdpersoon();
-        after = Levels.fillSpeelveld(after);
+        after = Level.fillSpeelveld(after);
         Game.setSpeelveld(before);
         Game.setHoofdPersoon(hoofdpersoon);
         Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('l'),'l');
@@ -54,9 +54,9 @@ public class TestVakje {
     @Test
     public void moveHoofdpersoonUpVakje(){
         before[1][0] = hoofdpersoon;
-        before = Levels.fillSpeelveld(before);
+        before = Level.fillSpeelveld(before);
         after[0][0] = new Hoofdpersoon();
-        after = Levels.fillSpeelveld(after);
+        after = Level.fillSpeelveld(after);
         Game.setSpeelveld(before);
         Game.setHoofdPersoon(hoofdpersoon);
         Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('u'),'u');
@@ -72,9 +72,9 @@ public class TestVakje {
     @Test
     public void moveHoofdpersoonDownVakje(){
         before[0][0] = hoofdpersoon;
-        before = Levels.fillSpeelveld(before);
+        before = Level.fillSpeelveld(before);
         after[1][0] = new Hoofdpersoon();
-        after = Levels.fillSpeelveld(after);
+        after = Level.fillSpeelveld(after);
         Game.setSpeelveld(before);
         Game.setHoofdPersoon(hoofdpersoon);
         Hoofdpersoon.moveHoofdpersoon(Hoofdpersoon.surrounding('d'),'d');

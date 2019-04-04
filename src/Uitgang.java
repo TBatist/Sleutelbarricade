@@ -6,11 +6,11 @@ import java.io.IOException;
 import java.net.URL;
 
 public class Uitgang extends JComponent {
-    private static int levelCompleted = 2;
+    private static int levelCompleted = -1;
     private BufferedImage imageUitgang;
 
     /**
-     * initialiseerd het plaatje van de uitgang
+     * Initialiseerd het plaatje van de uitgang
      */
     public Uitgang(){
         URL resource = getClass().getResource("trapdoor.png");
