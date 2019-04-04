@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.URL;
 
 public class Uitgang extends JComponent {
-    private static int levelCompleted = -1;
+    private static int levelCompleted = 2;
     private BufferedImage imageUitgang;
 
     /**
