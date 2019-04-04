@@ -36,3 +36,8 @@ public class Kaas extends JComponent {
     }
 
 }
+
+/**
+ * Het Plaatje van onze obstakel komt van deze bron:
+ * https://art4clip.com/explore/Macaroni%20clipart%20block%20cheese/#go_post_8359_mozzarella-clipart-french-cheese-15.png
+ */
