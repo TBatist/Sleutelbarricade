@@ -93,9 +93,10 @@ public class Game extends JPanel {
 
         if(Uitgang.getLevelCompleted() == -1){
             instructions.setLayout(new GridLayout(3,1));
-            regel1.setFont(new Font("Serif", Font.BOLD, 20));
-            regel2.setFont(new Font("Serif", Font.BOLD, 20));
-            regel3.setFont(new Font("Serif", Font.BOLD, 20));
+            Font font = new Font("Serif", Font.BOLD, 20);
+            regel1.setFont(font);
+            regel2.setFont(font);
+            regel3.setFont(font);
             regel1.setHorizontalAlignment(JLabel.CENTER);
             regel2.setHorizontalAlignment(JLabel.CENTER);
             regel3.setHorizontalAlignment(JLabel.CENTER);
