@@ -202,3 +202,7 @@ public class Game extends JPanel {
         }
     }
 }
+
+/** Deze bron hebben wij gebruikt voor de gif op het start scherm:
+ * https://gifer.com/en/40OU
+ */
