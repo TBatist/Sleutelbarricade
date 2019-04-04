@@ -66,13 +66,11 @@ public class Game extends JPanel {
             }
         }
 
-        JButton reset = new JButton("Reset");
-        ActionListener actionListener = new addActionListener();
-        reset.addActionListener(actionListener);
+        JLabel reset = new JLabel("R = Reset level");
         buttonGroup.add(reset, BorderLayout.SOUTH);
 
         frame.add(grid, BorderLayout.CENTER);
-        //frame.add(buttonGroup, BorderLayout.SOUTH);
+        rframe.add(buttonGroup, BorderLayout.SOUTH);
         frame.setSize(1000, 1000);
 
         frame.setVisible(true);
@@ -118,13 +116,5 @@ public class Game extends JPanel {
 
         @Override
         public void keyReleased(KeyEvent e) {}
-    }
-
-    public class addActionListener implements ActionListener{
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            Uitgang.restartLevel();
-        }
     }
 }
