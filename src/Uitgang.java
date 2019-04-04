@@ -27,6 +27,7 @@ public class Uitgang extends JComponent {
     }
 
     public static void restartLevel(){
+        Hoofdpersoon.setRaspWaarde(new Rasp(0));
         Game.frame.dispose();
         Game level = new Game();
         level.startProgram();
