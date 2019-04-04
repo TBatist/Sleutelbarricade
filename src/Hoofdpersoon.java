@@ -9,6 +9,9 @@ public class Hoofdpersoon extends JComponent {
     private static int raspWaarde;
     private BufferedImage imagePatrick;
 
+    /**
+     * Hierin wordt de startwaarde van rasp en een plaatje geinitialiseerd
+     */
     public Hoofdpersoon() {
         raspWaarde = 0;
         URL resource = getClass().getResource("Patrick.png");
@@ -19,6 +22,11 @@ public class Hoofdpersoon extends JComponent {
         }
     }
 
+    /**
+     * Hier wordt gecheckt of de raspwaarde gelijk is aan de kaaswaarde
+     * @param kaas
+     * @return boolean
+     */
     public static boolean checkWaarde(Kaas kaas) {
         if(raspWaarde == kaas.getWaarde()){
             return true;
@@ -26,14 +34,26 @@ public class Hoofdpersoon extends JComponent {
         return false;
     }
 
+    /**
+     * Setter voor raspwaarde
+     * @param rasp
+     */
     public void setRaspWaarde(Rasp rasp){
         this.raspWaarde = rasp.getWaarde();
     }
 
+    /**
+     * getter voor raspwaarde
+     * @return raspwaarde
+     */
     public int getRaspWaarde(){
         return this.raspWaarde;
     }
 
+    /**
+     * getter voor de locatie van hoofdpersoon
+     * @return coordinaten van hoofdpersoon
+     */
     public static int[] getHoofdpersoonLocation(){
         JComponent[][] speelveld = Game.getSpeelveld();
         int[] coordinaten = new int[2];
@@ -49,6 +69,11 @@ public class Hoofdpersoon extends JComponent {
         return null;
     }
 
+    /**
+     * Methode om te kijken wat er naast je zit aan een bepaalde kant en of je niet uit de map loopt
+     * @param direction
+     * @return Object in het speelveld
+     */
     public static JComponent surrounding(char direction){
         JComponent[][] speelveld = Game.getSpeelveld();
         int[] coordinaten = getHoofdpersoonLocation();
@@ -79,6 +104,11 @@ public class Hoofdpersoon extends JComponent {
         return null;
     }
 
+    /**
+     * Methode die het hoofdpersoon een bepaalde kant op laten lopen mits dit kan volgens het spel
+     * @param surrounding
+     * @param direction
+     */
     public static void moveHoofdpersoon(JComponent surrounding, char direction) {
         int[] coordinaten = getHoofdpersoonLocation();
         int y = coordinaten[0];
@@ -118,6 +148,10 @@ public class Hoofdpersoon extends JComponent {
         }
     }
 
+    /**
+     * Dit maakt van het hoofdpersonage het plaatje
+     * @param g
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(imagePatrick, 0, 0, 100,100,this);

@@ -10,6 +10,10 @@ public class Rasp extends JComponent {
     private String waardeString;
     private BufferedImage imageRasp;
 
+    /**
+     * dit initialiseerd de waarde van de rasp en het plaatje
+     * @param waarde
+     */
     public Rasp(int waarde){
         this.waarde = waarde;
         URL resource = getClass().getResource("kaasRasp.png");
@@ -20,10 +24,18 @@ public class Rasp extends JComponent {
         }
     }
 
+    /**
+     * getter voor de raspwaarde
+     * @return waarde
+     */
     public int getWaarde(){
         return waarde;
     }
 
+    /**
+     * dit maakt het plaatje van de rasp en laat zien welke waarde de rasp heeft
+     * @param g
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(imageRasp, 15, 10, 75,85,this);

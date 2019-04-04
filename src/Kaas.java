@@ -10,6 +10,10 @@ public class Kaas extends JComponent {
     private String waardeString;
     private BufferedImage imageKaas;
 
+    /**
+     * Dit initialiseerd de waarde van de kaas en het plaatje
+     * @param waarde
+     */
     public Kaas(int waarde){
         this.waarde = waarde;
 
@@ -22,10 +26,18 @@ public class Kaas extends JComponent {
 
     }
 
+    /**
+     * getter van de kaaswaarde
+     * @return waarde
+     */
     public int getWaarde(){
         return waarde;
     }
 
+    /**
+     * dit maakt van het plaatje van de kaas en laat zien welke waarde de kaas heeft
+     * @param g
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(imageKaas, 0, 0, 100,100,this);

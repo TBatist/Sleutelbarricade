@@ -8,6 +8,9 @@ import java.net.URL;
 public class VasteMuur extends JComponent {
     private BufferedImage imageMuur;
 
+    /**
+     * initialiseerd het plaatje van de muur
+     */
     public VasteMuur(){
         URL resource = getClass().getResource("muur.png");
         try {
@@ -18,6 +21,10 @@ public class VasteMuur extends JComponent {
     }
 
 
+    /**
+     * dit maakt het plaatje van de muur
+     * @param g
+     */
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         g.drawImage(imageMuur, -101, -93, 300,300,this);

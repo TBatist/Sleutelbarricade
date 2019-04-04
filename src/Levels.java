@@ -4,6 +4,11 @@ public class Levels extends JPanel {
     private static int rij;
     private static int kolom;
 
+    /**
+     * Dit is een methode waarbij je een level die alle objecten al heeft de rest kan laten vullen met lege vakjes
+     * @param speelveld
+     * @return speelveld
+     */
     public static JComponent[][] fillSpeelveld(JComponent[][] speelveld){
         for (rij = 0; rij < 10; rij++) {
             for (kolom = 0; kolom < 10; kolom++) {
@@ -15,7 +20,10 @@ public class Levels extends JPanel {
         return speelveld;
     }
 
-
+    /**
+     * Dit is een methode die het level waarin het level makkelijk aangemaakt kan worden
+     * @return speelveld dit returned het level
+     */
     public static JComponent[][] level1() {
         double[][] temp = {
         {4,0,0,0,0,0,0,0,0,0},
@@ -32,6 +40,10 @@ public class Levels extends JPanel {
         return generateLevel(temp);
     }
 
+    /**
+     * Dit is een methode die het level waarin het level makkelijk aangemaakt kan worden
+     * @return speelveld dit returned het level
+     */
     public static JComponent[][] level2(){
         double[][] temp = {
                 {4,0,0,0,0,2.1,2.2,0,0,0},
@@ -48,6 +60,10 @@ public class Levels extends JPanel {
         return generateLevel(temp);
     }
 
+    /**
+     * Dit is een methode die het level waarin het level makkelijk aangemaakt kan worden
+     * @return speelveld dit returned het level
+     */
     public static JComponent[][] level3(){
         double[][] temp = {
                 {4,1,1,1,1,1,0,0,0,0},
@@ -64,18 +80,31 @@ public class Levels extends JPanel {
         return generateLevel(temp);
     }
 
+    /**
+     * Dit is een methode die het level waarin het level makkelijk aangemaakt kan worden
+     * @return speelveld dit returned het level
+     */
     public static JComponent[][] level4(){
         JComponent [][] speelveld = Game.getSpeelveld();
         //Maak level hier
         return speelveld;
     }
 
+    /**
+     * Dit is een methode die het level waarin het level makkelijk aangemaakt kan worden
+     * @return speelveld dit returned het level
+     */
     public static JComponent[][] level5(){
         JComponent [][] speelveld = Game.getSpeelveld();
         //Maak level hier
         return speelveld;
     }
 
+    /**
+     * Dit is de methode die ervoor dat er ipv een array met doubles erin een echt speelveld gemaakt wordt
+     * @param temp Dit is gevuld met het level
+     * @return speelveld Dit returned het level dat gekozen is
+     */
     public static JComponent[][] generateLevel(double[][] temp) {
         JComponent [][] speelveld = Game.getSpeelveld();
         for (rij = 0; rij < 10; rij++) {

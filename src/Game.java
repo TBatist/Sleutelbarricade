@@ -13,28 +13,51 @@ public class Game extends JPanel {
     public static JFrame frame;
     private static Hoofdpersoon hoofdPersoon = new Hoofdpersoon();
     private static JComponent[][] speelveld = new JComponent[10][10];
-
+    /**
+     * Dit is een getter van het speelveld, zodat deze gebruikt kan worden in andere classes
+     * @return speelveld
+     */
     public static JComponent[][] getSpeelveld() {
         return speelveld;
     }
 
+    /**
+     *Dit is een setter van het speelveld, zodat dit gebruikt kan worden in andere classes
+     * @param nieuwVeld
+     */
     public static void setSpeelveld(JComponent[][] nieuwVeld){
         speelveld = nieuwVeld;
     }
 
+    /**
+     * Dit is een getter van het hoofdpersoon, zodat in andere classes het hoofdpersoon opgevraagd kan worden
+     * @return hoofdPersoon
+     */
     public static Hoofdpersoon getHoofdPersoon(){
         return hoofdPersoon;
     }
 
+    /**
+     * Dit is een setter van het hoofdpersoon, zodat het in andere classes gebruikt kan worden
+     * @param nieuwPersoon
+     */
     public static void setHoofdPersoon(Hoofdpersoon nieuwPersoon){
         hoofdPersoon = nieuwPersoon;
     }
 
+    /**
+     * de main method die het spel start.
+     * @param args wordt niet gebruikt
+     */
     public static void main(String[] args) {
         Game game = new Game();
         game.startProgram();
     }
 
+    /**
+     * De method die ervoor zorgt dat het frame opgestart wordt en alles daarbij wordt toegevoegd
+     * Ook kijkt dit naar welk level the speler is en maakt de grid en de borders van de levels
+     */
     public void startProgram() {
         border = BorderFactory.createLineBorder(Color.black);
         grid = new JPanel();
@@ -78,6 +101,9 @@ public class Game extends JPanel {
         frame.setVisible(true);
     }
 
+    /**
+     * Dit is de class die ervoor zorgt dat er iets gebeurt als je op een pijltje drukt
+     */
     public class addKeyListener implements KeyListener{
         @Override
         public void keyTyped(KeyEvent e) {}
