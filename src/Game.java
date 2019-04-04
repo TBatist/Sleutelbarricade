@@ -81,7 +81,7 @@ public class Game extends JPanel {
         grid.setLayout(new GridLayout(10, 10));
         KeyListener keyListener = new addKeyListener();
         frame.addKeyListener(keyListener);
-        playMusic("src\\\\Age-of-War-_Online-Game_-Theme.wav");
+
         frame.setTitle("Sleutelbarricade");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -98,6 +98,7 @@ public class Game extends JPanel {
             instructions.add(regel2);
             instructions.add(regel3);
             button.add(startGame);
+            playMusic("src\\\\Age-of-War-_Online-Game_-Theme.wav");
         }else if(Uitgang.getLevelCompleted() == 0) {
             speelveld = Levels.level1();
         }else if(Uitgang.getLevelCompleted() == 1){
@@ -158,7 +159,10 @@ public class Game extends JPanel {
         frame.setVisible(true);
     }
 
-
+    /**
+     * Methode om een achtergrond muziekje te laten afspelen
+     * @param filepath
+     */
     public static void playMusic(String filepath) {
         InputStream music;
         try {
@@ -226,4 +230,6 @@ public class Game extends JPanel {
 
 /** Deze bron hebben wij gebruikt voor de gif op het start scherm:
  * https://gifer.com/en/40OU
+ * Deze bron gebruikt voor een achtergrond muziekje
+ * https://www.youtube.com/watch?v=bupXb1Cby2U
  */
