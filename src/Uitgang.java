@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.URL;
 
 public class Uitgang extends JComponent {
-    private static int levelCompleted = 0;
+    private static int levelCompleted = -1;
     private BufferedImage imageUitgang;
 
     public Uitgang(){
@@ -27,6 +27,7 @@ public class Uitgang extends JComponent {
     }
 
     public static void restartLevel(){
+        Hoofdpersoon.setRaspWaarde(new Rasp(0));
         Game.frame.dispose();
         Game level = new Game();
         level.startProgram();
