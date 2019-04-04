@@ -65,12 +65,28 @@ public class Game extends JPanel {
                 speelveld[rij][kolom].setBorder(border);
             }
         }
+        JLabel reset = new JLabel("R = Reset level  |  ");
+        reset.setFont(new Font("Serif", Font.BOLD, 15));
 
-        JLabel reset = new JLabel("R = Reset level");
+        JLabel up = new JLabel("Moving up = ↑  |  ");
+        up.setFont(new Font("Serif", Font.BOLD, 15));
+
+        JLabel down = new JLabel("Moving down = ↓  |  ");
+        down.setFont(new Font("Serif", Font.BOLD, 15));
+
+        JLabel left = new JLabel("Move left = ←  |  ");
+        left.setFont(new Font("Serif", Font.BOLD, 15));
+
+        JLabel right = new JLabel("Move right = →");
+        right.setFont(new Font("Serif", Font.BOLD, 15));
         buttonGroup.add(reset, BorderLayout.SOUTH);
+        buttonGroup.add(up, BorderLayout.SOUTH);
+        buttonGroup.add(down, BorderLayout.SOUTH);
+        buttonGroup.add(left, BorderLayout.SOUTH);
+        buttonGroup.add(right, BorderLayout.SOUTH);
 
         frame.add(grid, BorderLayout.CENTER);
-        rframe.add(buttonGroup, BorderLayout.SOUTH);
+        frame.add(buttonGroup, BorderLayout.SOUTH);
         frame.setSize(1000, 1000);
 
         frame.setVisible(true);
