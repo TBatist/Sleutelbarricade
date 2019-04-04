@@ -165,7 +165,10 @@ public class Game extends JPanel {
         frame.setVisible(true);
     }
 
-
+    /**
+     * Methode om een achtergrond muziekje te laten afspelen
+     * @param filepath
+     */
     public static void playMusic(String filepath) {
         InputStream music;
         try {
@@ -233,4 +236,6 @@ public class Game extends JPanel {
 
 /** Deze bron hebben wij gebruikt voor de gif op het start scherm:
  * https://gifer.com/en/40OU
+ * Deze bron gebruikt voor een achtergrond muziekje
+ * https://www.youtube.com/watch?v=bupXb1Cby2U
  */
