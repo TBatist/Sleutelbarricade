@@ -105,10 +105,8 @@ public class Game extends JPanel {
             speelveld = Level.level2();
         }else if(Uitgang.getLevelCompleted() == 2){
             speelveld = Level.level3();
-        }else if(Uitgang.getLevelCompleted() == 3){
+        }else if(Uitgang.getLevelCompleted() == 3) {
             speelveld = Level.level4();
-        }else{
-            speelveld = Level.level5();
         }
 
         if(Uitgang.getLevelCompleted() >= 0) {

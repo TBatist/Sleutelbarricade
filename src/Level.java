@@ -106,16 +106,6 @@ public class Level extends JPanel {
     }
 
     /**
-     * een makkelijke methode voor het maken van levels
-     * @return speelveld
-     */
-    public static JComponent[][] level5(){
-        JComponent [][] speelveld = Game.getSpeelveld();
-        //Maak level hier
-        return speelveld;
-    }
-
-    /**
      * Methode die van een double array een speelveld maakt van een bepaald level
      * @param coordinaten
      * @return speelveld
